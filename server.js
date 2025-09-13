@@ -4,7 +4,7 @@ import express from 'express'
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
-const base = process.env.BASE || '/'
+const base = process.env.BASE || '/MovieApp/'
 
 // Cached production assets
 const templateHtml = isProduction
