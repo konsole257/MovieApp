@@ -1,5 +1,3 @@
-import { NavLink } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
 import PopularMovies from '../features/populars/popularMovie';
 import PopularTVs from '../features/populars/popularTV';
 import PopularPersons from '../features/populars/popularPerson';
