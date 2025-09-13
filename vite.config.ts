@@ -5,7 +5,7 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig(() => {
   return {
-    base: '/', 
+    base: '/MovieApp/', 
     plugins: [react()],
     resolve: {
       alias: {
