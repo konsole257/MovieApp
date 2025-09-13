@@ -1,6 +1,6 @@
 {
   "functions": {
-    "server.js": { "runtime": "nodejs20.x" }
+    "server.js": { "runtime": "nodejs@20.x" }
   },
   "routes": [
     { "src": "/(.*)", "dest": "/server.js" }
