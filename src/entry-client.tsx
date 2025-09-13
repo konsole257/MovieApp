@@ -9,7 +9,7 @@ hydrateRoot(
   document.getElementById('root') as HTMLElement,
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename='/MovieApp/'>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>

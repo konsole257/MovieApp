@@ -13,10 +13,10 @@ const Detail = () => {
         </header>
 
         <div className="page-cotents">
-          <figure className="cover-fig"><img className="cover-img" src="/MovieApp/images/temp/detail@2x.png" alt="" /></figure>
-          <figure className="cover-fig"><img className="cover-img" src="/MovieApp/images/temp/detail@2x.png" alt="" /></figure>
-          <figure className="cover-fig"><img className="cover-img" src="/MovieApp/images/temp/detail@2x.png" alt="" /></figure>
-          <figure className="cover-fig"><img className="cover-img" src="/MovieApp/images/temp/detail@2x.png" alt="" /></figure>
+          <figure className="cover-fig"><img className="cover-img" src="/images/temp/detail@2x.png" alt="" /></figure>
+          <figure className="cover-fig"><img className="cover-img" src="/images/temp/detail@2x.png" alt="" /></figure>
+          <figure className="cover-fig"><img className="cover-img" src="/images/temp/detail@2x.png" alt="" /></figure>
+          <figure className="cover-fig"><img className="cover-img" src="/images/temp/detail@2x.png" alt="" /></figure>
         </div>
       </div>
     </div>
