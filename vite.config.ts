@@ -8,8 +8,8 @@ export default defineConfig(() => {
     base: '/MovieApp/', 
     plugins: [react()],
     build: {
-      ssr: true,
-      outDir: 'dist/client',
+      ssr: path.resolve(__dirname, 'src/entry-server.tsx'),
+      outDir: 'dist/server',
     },
     resolve: {
       alias: {
