@@ -589,14 +589,21 @@ const PopularPersons = () => {
     /* @__PURE__ */ jsx("div", { className: "person-name", children: popularPerson.name })
   ] }) }, popularPerson.id)) });
 };
+const Tab = ({ children, tabs }) => {
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx("ul", { className: "tab-list", children: tabs.map((tab, idx) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(NavLink, { className: "tab-link", to: tab.link, children: tab.label }) }, idx)) }),
+    children && /* @__PURE__ */ jsx("div", { className: "tab-contents", children })
+  ] });
+};
 const Home$2 = () => {
+  const tabData = [
+    { label: "Popular", link: "/" },
+    { label: "Movie", link: "/Movie" },
+    { label: "TV Show", link: "/TV" }
+  ];
   return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs("div", { className: "page home", children: [
     /* @__PURE__ */ jsx("h1", { className: "page-tit", children: "Home" }),
-    /* @__PURE__ */ jsxs("ul", { className: "tab-list", children: [
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(NavLink, { className: "tab-link", to: "/", children: "Popular" }) }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(NavLink, { className: "tab-link", to: "/Movie", children: "Movie" }) }),
-      /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(NavLink, { className: "tab-link", to: "/TV", children: "TV Show" }) })
-    ] }),
+    /* @__PURE__ */ jsx(Tab, { tabs: tabData }),
     /* @__PURE__ */ jsxs("div", { className: "visual", children: [
       /* @__PURE__ */ jsx("img", { className: "visual-img", src: "/images/temp/screen@2x.png", alt: "" }),
       /* @__PURE__ */ jsx("div", { className: "visual-txt", children: "Wanda Vision" })
