@@ -35,7 +35,7 @@ if (!isProduction) {
 // Serve HTML
 app.use('*all', async (req, res) => {
   try {
-    const url = req.originalUrl.startsWith('/') ? req.originalUrl : '/' + req.originalUrl;
+    const url = req.originalUrl.startsWith('/MovieApp/') ? req.originalUrl : '/MovieApp/' + req.originalUrl;
 
     /** @type {string} */
     let template
