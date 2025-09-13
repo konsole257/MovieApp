@@ -20,7 +20,7 @@ const Home = () => {
       </ul>
 
       <div className="visual">
-        <img  className="visual-img" src="/images/temp/screen@2x.png" alt="" />
+        <img  className="visual-img" src="/MovieApp/images/temp/screen@2x.png" alt="" />
         <div className="visual-txt">Wanda Vision</div>
       </div>
 
