@@ -17,7 +17,7 @@ export function render(_url: string) {
     </StrictMode>
   )
   return { 
-    html,
-    // head:`<style>${Init}</style>`
+    html
    }
-}
+  }
+  

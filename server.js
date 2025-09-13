@@ -52,7 +52,7 @@ app.use('*all', async (req, res) => {
     }
 
     const rendered = await render(url)
-
+    console.log('SSR HTML:', rendered)
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
