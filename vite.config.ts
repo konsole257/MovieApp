@@ -7,6 +7,10 @@ export default defineConfig(() => {
   return {
     base: '/MovieApp/', 
     plugins: [react()],
+    build: {
+      ssr: true,
+      outDir: 'dist/client',
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
