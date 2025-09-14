@@ -1,0 +1,31 @@
+/**
+* --------------------------------
+* Home CSS
+* --------------------------------
+*/
+
+.block {padding: 16px 16px;overflow: hidden;overflow-x: auto;}
+.block-tit {position: sticky;left: 0;font-size: 12px;margin-bottom: 16px;}
+
+.tab-list {position: sticky;z-index: 2;top: 0;padding-top: calc(var(--safe-top) + 16px);background-color: rgba(36, 36, 36, 0.8);backdrop-filter: blur(6px);-webkit-backdrop-filter: blur(6px);}
+
+.visual {position:relative;}
+.visual-img {width: 100%;}
+.visual-txt {position: absolute;z-index: 1;bottom: 16px;left: 16px;font-weight: 700;}
+
+.movie-list {display: flex;flex-wrap: nowrap;gap: 16px;}
+.movie-item {flex: 1;min-width: 99px;height: 127px;border-radius: 9px;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
+.movie-link {display: block;height: 100%;}
+.movie-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
+
+.tv-list {display: flex;flex-wrap: nowrap;gap: 16px;}
+.tv-item {flex: 1;min-width: 99px;height: 127px;border-radius: 9px;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
+.tv-link {display: block;height: 100%;}
+.tv-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
+
+.person-list {display: flex;flex-wrap: nowrap;gap: 16px;}
+.person-item {flex: 1;min-width: 99px;height: 127px;}
+.person-link {display: flex;flex-direction: column;align-items: center;height: 100%;}
+.person-fig {width: 85px;height: 85px;border-radius: 50%;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
+.person-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
+.person-name {font-size: 12px;text-align: center;margin-top: 10px;}

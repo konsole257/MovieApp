@@ -1,0 +1,10 @@
+/**
+* --------------------------------
+* Tab CSS
+* --------------------------------
+*/
+
+.tab-list {display: flex;gap: 16px;padding: 16px;}
+.tab-link {font-weight: 700;color: rgba(255, 255, 255, 0.5);}
+.tab-link.active {position: relative;color: rgba(255, 255, 255, 1);}
+.tab-link.active:after {content: '';position: absolute;right: 0;bottom: -5px;left: 0;width: 30px;height: 3px;margin: 0 auto;background: #b80303;}
