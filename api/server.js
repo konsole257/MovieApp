@@ -1,6 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs/promises'
 import express from 'express'
+import { pathToFileURL } from 'node:url'
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -50,7 +51,7 @@ app.use('*all', async (req, res) => {
       render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render
     } else {
       template = templateHtml
-      render = (await import(path.resolve('./dist/server/entry-server.js'))).render
+      render = (await import(pathToFileURL(path.resolve('./dist/server/entry-server.js')).href)).render
     }
     const rendered = await render(url)
     
@@ -70,7 +71,7 @@ app.use('*all', async (req, res) => {
 // Start http server
 app.listen(port, () => {
   console.log(
-        `\n\n`+
+    `\n`+
 		`/**********************************************************\n`+
 		`     Server started at - http://localhost:${port}/         \n`+
 		`**********************************************************/`
