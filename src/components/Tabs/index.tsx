@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import './Tab.css';
+import './Tabs.css';
 
 interface Tab {
   label: string;
@@ -12,7 +12,7 @@ interface TabsProps {
   children?: React.ReactNode;
 }
 
-const Tab = ({children, tabs}: TabsProps) => {
+const Tabs = ({children, tabs}: TabsProps) => {
   return (
   <>
    <ul className="tab-list">
@@ -30,4 +30,4 @@ const Tab = ({children, tabs}: TabsProps) => {
   )
 }
 
-export default Tab;
+export default Tabs;

@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from "react-router-dom/server"
+import { StaticRouter } from "react-router-dom"
 import { Provider } from 'react-redux';
 import { createStore } from './app/store';
 

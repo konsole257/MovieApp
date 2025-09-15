@@ -1,6 +1,6 @@
-import path from 'node:path';
-import fs from 'node:fs/promises'
 import express from 'express'
+import fs from 'node:fs/promises'
+import path from 'node:path';
 import { pathToFileURL } from 'node:url'
 
 // Constants
@@ -73,7 +73,7 @@ app.listen(port, () => {
   console.log(
     `\n`+
 		`/**********************************************************\n`+
-		`     Server started at - http://localhost:${port}/         \n`+
+		`     ${isProduction ? 'Prod' : 'Dev'} Server - http://localhost:${port}/ \n`+
 		`**********************************************************/`
 	)
 });

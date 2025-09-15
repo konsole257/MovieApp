@@ -1,0 +1,11 @@
+/**
+* --------------------------------
+* Person Item CSS
+* --------------------------------
+*/
+
+.person-item {flex: 1;min-width: 99px;height: 127px;}
+.person-item .person-link {display: flex;flex-direction: column;align-items: center;height: 100%;}
+.person-item .person-fig {width: 85px;height: 85px;border-radius: 50%;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
+.person-item .person-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
+.person-item .person-name {height: 28px;font-size: 12px;text-align: center;margin-top: 10px;}

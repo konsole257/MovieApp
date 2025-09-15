@@ -1,27 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export interface MovieNow {
+export interface TVTopRated {
   id: number;
   title: string;
   poster_path: string;
 };
 
-interface MovieNowsState {
-  items: MovieNow[];
+interface TVTopRatedsState {
+  items: TVTopRated[];
   loading: boolean;
   error: string | null;
 };
 
-const initialState: MovieNowsState = {
+const initialState: TVTopRatedsState = {
   items: [],
   loading: false,
   error: null,
 };
 
-export const fetchMovieNows = createAsyncThunk('movies/fetchMovieNow',
+export const fetchTVTopRateds = createAsyncThunk('tvs/fetchTVTopRated',
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=ja-JP&page=1',
+      const res = await fetch('https://api.themoviedb.org/3/tv/top_rated?language=ja-JP&page=1',
         {
           method: 'GET',
           headers: {
@@ -38,7 +38,7 @@ export const fetchMovieNows = createAsyncThunk('movies/fetchMovieNow',
       
       const data = await res.json();
 
-      return data.results as MovieNow[];
+      return data.results as TVTopRated[];
 
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -50,25 +50,25 @@ export const fetchMovieNows = createAsyncThunk('movies/fetchMovieNow',
   }
 );
 
-const MovieNowsSlice = createSlice({
-  name: 'movieNows',
+const TVTopRatedsSlice = createSlice({
+  name: 'tvTopRateds',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMovieNows.pending, (state) => {
+      .addCase(fetchTVTopRateds.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchMovieNows.fulfilled, (state, action) => {
+      .addCase(fetchTVTopRateds.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
       })
-      .addCase(fetchMovieNows.rejected, (state, action) => {
+      .addCase(fetchTVTopRateds.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string || action.error.message || 'Failed to fetch movies';
       });
   },
 });
 
-export default MovieNowsSlice.reducer;
+export default TVTopRatedsSlice.reducer;

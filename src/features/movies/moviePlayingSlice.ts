@@ -1,27 +1,27 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export interface MovieTop {
+export interface MoviePlaying {
   id: number;
   title: string;
   poster_path: string;
 };
 
-interface MovieTopsState {
-  items: MovieTop[];
+interface MoviePlayingsState {
+  items: MoviePlaying[];
   loading: boolean;
   error: string | null;
 };
 
-const initialState: MovieTopsState = {
+const initialState: MoviePlayingsState = {
   items: [],
   loading: false,
   error: null,
 };
 
-export const fetchMovieTops = createAsyncThunk('movies/fetchMovieTop',
+export const fetchMoviePlayings = createAsyncThunk('movies/fetchMoviePlaying',
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=ja-JP&page=1',
+      const res = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=ja-JP&page=1',
         {
           method: 'GET',
           headers: {
@@ -38,7 +38,7 @@ export const fetchMovieTops = createAsyncThunk('movies/fetchMovieTop',
       
       const data = await res.json();
 
-      return data.results as MovieTop[];
+      return data.results as MoviePlaying[];
 
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -50,25 +50,25 @@ export const fetchMovieTops = createAsyncThunk('movies/fetchMovieTop',
   }
 );
 
-const MovieTopsSlice = createSlice({
-  name: 'movieTops',
+const MoviePlayingsSlice = createSlice({
+  name: 'moviePlayings',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMovieTops.pending, (state) => {
+      .addCase(fetchMoviePlayings.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchMovieTops.fulfilled, (state, action) => {
+      .addCase(fetchMoviePlayings.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
       })
-      .addCase(fetchMovieTops.rejected, (state, action) => {
+      .addCase(fetchMoviePlayings.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string || action.error.message || 'Failed to fetch movies';
       });
   },
 });
 
-export default MovieTopsSlice.reducer;
+export default MoviePlayingsSlice.reducer;

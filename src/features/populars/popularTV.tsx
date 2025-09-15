@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
 import { fetchPopularTVs } from './popularTVSlice';
+
+import MediaItem from '../../components/MediaItem';
 
 const PopularTVs = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,13 +20,7 @@ const PopularTVs = () => {
 
   return (
   <>
-    {popularTVs.map((popularTV) => (
-      <li className="movie-item" key={popularTV.id}>
-        <NavLink className="movie-link" to="/Popular/Detail">
-          <img className="movie-img" loading="lazy" src={`https://image.tmdb.org/t/p/w200${popularTV.poster_path}`} alt={popularTV.title} />
-        </NavLink>
-      </li>
-    ))}
+    <MediaItem medias={popularTVs}/>
   </>
   );
 };

@@ -27,8 +27,20 @@ a {text-decoration: none;color: var(--color-white);-webkit-tap-highlight-color: 
 hr {display: none;}
 
 .hidden {position: absolute;width: 1px;height: 1px;white-space: nowrap;margin: -1px;overflow: hidden;clip-path: polygon(0 0, 0 0, 0 0);}
-.skip {position: absolute;top: -40px;width: 80vw;right: 0;left: 0;text-align: center;text-decoration: none;color: var(--color-white);padding: 8px;margin: auto;z-index: 100;background: rgba(0, 0, 0, 0.75);}
-.skip:focus {top: 30px;}
+
+.skip {
+  position: absolute;top: -40px;width: 80vw;right: 0;left: 0;text-align: center;text-decoration: none;color: var(--color-white);padding: 8px;margin: auto;z-index: 100;background: rgba(0, 0, 0, 0.75);
+  
+  &:focus {top: 30px;}
+}
+
+[class*='ellipsis'] {
+  display: -webkit-box;overflow: hidden;-webkit-box-orient: vertical;
+  
+  &[class*='-line1'] {-webkit-line-clamp: 1;line-clamp: 1;}
+  &[class*='-line2'] {-webkit-line-clamp: 2;line-clamp: 2;}
+}
+
 
 
 
