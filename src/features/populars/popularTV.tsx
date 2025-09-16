@@ -20,7 +20,7 @@ const PopularTVs = () => {
 
   return (
   <>
-    <MediaItem medias={popularTVs}/>
+    <MediaItem type="tv" medias={popularTVs}/>
   </>
   );
 };

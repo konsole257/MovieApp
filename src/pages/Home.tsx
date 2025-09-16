@@ -31,16 +31,13 @@ const [info, setInfo] = useState<any>([])
 useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch(
-          'https://api.themoviedb.org/3/movie/1311031/videos?language=ja-JP',
-          options
-        );
+        const res = await fetch('https://api.themoviedb.org/3/movie/1311031/videos?language=ja-JP', options);
+
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setVideos(data.results);
       } catch (err: any) {
         console.error(err);
-      } finally {
       }
     };
 
@@ -49,16 +46,13 @@ useEffect(() => {
     
     const fetchInfo = async () => {
       try {
-        const res = await fetch(
-          'https://api.themoviedb.org/3/movie/1311031?language=ja-JP',
-          options
-        );
+        const res = await fetch('https://api.themoviedb.org/3/movie/1311031?language=ja-JP',options);
+        
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setInfo(data);
       } catch (err: any) {
         console.error(err);
-      } finally {
       }
     };
 
@@ -74,8 +68,6 @@ useEffect(() => {
 
       {/* {videos.map((video: any) => (
         <div key={video.id}>
-          <div>{video.name}</div>
-          <div>{video.site}</div>
           <iframe
           src={`https://www.youtube.com/embed/${video.key}`} 
           title="YouTube video player"
@@ -84,25 +76,6 @@ useEffect(() => {
           allowFullScreen></iframe>
         </div>
       ))} */}
-
-      {/* <img src={`https://image.tmdb.org/t/p/w200${backdrops.file_path}`} alt="" /> */}
-
-      {/* {posters.map((image: any, idx: number) => (
-        <div key={idx}>
-          <div><img src={`https://image.tmdb.org/t/p/w200${image.file_path}`} alt="" /></div>
-        </div>
-      ))} */}
-
-      {/* {backdrops.map((backdrop: any, idx: number) => (
-        <div key={idx}>
-          <div><img src={`https://image.tmdb.org/t/p/w200${backdrop.file_path}`} alt="" /></div>
-        </div>
-      ))} */}
-
-      {/* <div className="visual">
-        <figure className="visual-fig"><img  className="visual-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
-        <div className="visual-tit ellipsis-line2">{info.title}</div>
-      </div> */}
 
       <div className="block hero">
         <Swiper

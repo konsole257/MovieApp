@@ -20,7 +20,7 @@ const TVAiringTodays = () => {
 
   return (
   <>
-    <MediaItem medias={tvAiringTodays}/>
+    <MediaItem type="tv" medias={tvAiringTodays}/>
   </>
   );
 };

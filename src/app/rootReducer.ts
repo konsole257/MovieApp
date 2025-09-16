@@ -9,6 +9,7 @@ import MovieCommingsReducer from '../features/movies/movieCommingSlice';
 import TVAiringTodaysReducer from '../features/tvs/tvAiringTodaySlice';
 import TVOnTheAirsReducer from '../features/tvs/tvOnTheAirSlice';
 import TVTopRatedsReducer from '../features/tvs/tvTopRatedSlice';
+import DetailContentsReducer from '../features/detail/detailContentSlice';
 
 const rootReducer = combineReducers({
   popularMovies: PopularMoviesReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   tvAiringTodays: TVAiringTodaysReducer,
   tvOnTheAirs: TVOnTheAirsReducer,
   tvTopRateds: TVTopRatedsReducer,
+  detailContent: DetailContentsReducer,
 });
 
 export default rootReducer;

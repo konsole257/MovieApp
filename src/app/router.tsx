@@ -15,10 +15,17 @@ const AppRouter = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/Popular" element={<Home />}>
-          <Route path="Detail" element={<Detail />} />
+          <Route path="Detail/:type/:id" element={<Detail />} />
         </Route>
-        <Route path="/Movie" element={<HomeMovie />} />
-        <Route path="/TV" element={<HomeTV />} />
+        <Route path="/Movie" element={<HomeMovie />}>
+          <Route path="Detail/:type/:id" element={<Detail />} />
+        </Route>
+        <Route path="/TV" element={<HomeTV />}>
+          <Route path="Detail/:type/:id" element={<Detail />} />
+        </Route>
+        <Route path="/Person" element={<HomeTV />}>
+          <Route path="Detail/:type/:id" element={<Detail />} />
+        </Route>
 
         <Route path="/Favorite" element={<Favorite />} />
         <Route path="/Search" element={<Search />} />

@@ -1,18 +1,22 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import DetailContent from '../features/detail/detailContent';
+
 import './Detail.css';
 
 const Detail = () => {
+  const navigate = useNavigate();
+  
   return (
   <>
     <div className="page detail">
       <h1 className="page-tit">Detail</h1>
 
       <header className="page-header">
-        <NavLink className="btn-back" to="/"><i className="icon-arrow"></i><span className="hidden">戻る</span></NavLink>
+        <button className="btn-back" onClick={() => navigate(-1)}><i className="icon-arrow"></i><span className="hidden">戻る</span></button>
       </header>
 
       <div className="page-cotents">
-        <figure className="cover-fig"><img className="cover-img" src="/images/temp/detail@2x.png" alt="" /></figure>
+        <DetailContent />
       </div>
     </div>
   </>
