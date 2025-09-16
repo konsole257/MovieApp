@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
+import { Pagination, A11y, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import Tabs from '../components/Tabs';
 import PopularMovies from '../features/populars/popularMovie';
 import PopularTVs from '../features/populars/popularTV';
 import PopularPersons from '../features/populars/popularPerson';
 
 import './Home.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Home = () => {
   const tabData = [
@@ -94,9 +99,28 @@ useEffect(() => {
         </div>
       ))} */}
 
-      <div className="visual">
+      {/* <div className="visual">
         <figure className="visual-fig"><img  className="visual-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
         <div className="visual-tit ellipsis-line2">{info.title}</div>
+      </div> */}
+
+      <div className="block hero">
+        <Swiper
+          modules={[Pagination, A11y, Autoplay]}
+          slidesPerView={1}
+          pagination
+          loop
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+        >
+          <SwiperSlide className="hero-div">
+            <figure className="hero-fig"><img  className="hero-img" loading="lazy" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
+            <div className="hero-tit ellipsis-line2">{info.title}</div>
+          </SwiperSlide>
+          <SwiperSlide className="hero-div">
+            <figure className="hero-fig"><img  className="hero-img" loading="lazy" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
+            <div className="hero-tit ellipsis-line2">{info.title}</div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <section className="block movie">

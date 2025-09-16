@@ -19,9 +19,11 @@ const Home = () => {
 
       <Tabs tabs={tabData} />
 
-      <div className="visual">
-        <figure className="visual-fig"><img  className="visual-img" src="/images/temp/screen@2x.png" alt="" /></figure>
-        <div className="visual-tit ellipsis-line2">Wanda Vision</div>
+      <div className="block hero">
+        <div className="hero-div">
+          <figure className="hero-fig"><img  className="hero-img" src="/images/temp/screen@2x.png" alt="" /></figure>
+          <div className="hero-tit ellipsis-line2">Wanda Vision</div>
+        </div>
       </div>
 
       <section className="block movie">
