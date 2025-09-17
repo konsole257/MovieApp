@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
-import { fetchPopularPersons } from './popularPersonSlice';
+import fetchPopularPersons from './popularPersonThunk';
 
 import PersonItem from '../../components/PersonItem';
 

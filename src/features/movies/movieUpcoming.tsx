@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
-import { fetchMovieCommings } from './movieCommingSlice';
+import fetchMovieUpcomings from './movieUpcomingThunk';
 
 import MediaItem from '../../components/MediaItem';
 
-const MovieCommings = () => {
+const MovieUpcomings = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { items: movieCommings, loading, error } = useSelector(
-    (state: RootState) => state.movieCommings
+  const { items: movieUpcomings, loading, error } = useSelector(
+    (state: RootState) => state.movieUpcomings
   );
   
   useEffect(() => {
-    dispatch(fetchMovieCommings());
+    dispatch(fetchMovieUpcomings());
   }, [dispatch]);
 
   if (loading) return <p>Loading movies...</p>;
@@ -20,9 +20,9 @@ const MovieCommings = () => {
 
   return (
   <>
-    <MediaItem type="movie" medias={movieCommings}/>
+    <MediaItem type="movie" medias={movieUpcomings}/>
   </>
   );
 };
 
-export default MovieCommings;
+export default MovieUpcomings;

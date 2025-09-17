@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
-import { fetchMovieRates } from './movieRateSlice';
+import fetchMovieNowPlayings from './movieNowPlayingThunk';
 
 import MediaItem from '../../components/MediaItem';
 
-const MovieRates = () => {
+const MovieNowPlayings = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { items: movieRates, loading, error } = useSelector(
-    (state: RootState) => state.movieRates
+  const { items: movieNowPlayings, loading, error } = useSelector(
+    (state: RootState) => state.movieNowPlayings
   );
   
   useEffect(() => {
-    dispatch(fetchMovieRates());
+    dispatch(fetchMovieNowPlayings());
   }, [dispatch]);
 
   if (loading) return <p>Loading movies...</p>;
@@ -20,9 +20,9 @@ const MovieRates = () => {
 
   return (
   <>
-    <MediaItem type="movie" medias={movieRates}/>
+    <MediaItem type="movie" medias={movieNowPlayings}/>
   </>
   );
 };
 
-export default MovieRates;
+export default MovieNowPlayings;

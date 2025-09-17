@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
-import { fetchPopularMovies } from './popularMovieSlice';
+import fetchPopularMovies from './popularMovieThunk';
 
 import MediaItem from '../../components/MediaItem';
 
@@ -15,7 +15,7 @@ const PopularMovies = () => {
     dispatch(fetchPopularMovies());
   }, [dispatch]);
 
-  if (loading) return <p>Loading movies...</p>;
+  if (loading) return <p>Loading Data...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (

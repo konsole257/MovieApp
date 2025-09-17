@@ -1,43 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit';
-import fetchTVAiringTodays from './tvAiringTodayThunk';
+import fetchMovieUpcomings from './movieUpcomingThunk';
 
-export interface TVAiringToday {
+export interface MovieUpcoming {
   id: number;
   title: string;
   poster_path: string;
 };
 
-interface TVAiringTodaysState {
-  items: TVAiringToday[];
+interface MovieUpcomingsState {
+  items: MovieUpcoming[];
   loading: boolean;
   error: string | null;
 };
 
-const initialState: TVAiringTodaysState = {
+const initialState: MovieUpcomingsState = {
   items: [],
   loading: false,
   error: null,
 };
 
-const TVAiringTodaysSlice = createSlice({
-  name: 'tvAiringTodays',
+const MovieUpcomingsSlice = createSlice({
+  name: 'movieCommings',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTVAiringTodays.pending, (state) => {
+      .addCase(fetchMovieUpcomings.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchTVAiringTodays.fulfilled, (state, action) => {
+      .addCase(fetchMovieUpcomings.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
       })
-      .addCase(fetchTVAiringTodays.rejected, (state, action) => {
+      .addCase(fetchMovieUpcomings.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string || action.error.message || 'Failed to fetch movies';
       });
   },
 });
 
-export default TVAiringTodaysSlice.reducer;
+export default MovieUpcomingsSlice.reducer;

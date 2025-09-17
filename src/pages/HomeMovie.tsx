@@ -1,7 +1,7 @@
 import Tabs from '../components/Tabs';
-import MoviePlaying from '../features/movies/moviePlaying';
-import MovieRate from '../features/movies/movieRate';
-import MovieComming from '../features/movies/movieComming';
+import MovieNowPlaying from '../features/movies/movieNowPlaying';
+import MovieTopRated from '../features/movies/movieTopRated';
+import MovieUpcoming from '../features/movies/movieUpcoming';
 
 import './Home.css';
 
@@ -30,7 +30,7 @@ const Home = () => {
         <h2 className="block-tit plaing-tit">Now Playing</h2>
 
         <ul className="media-list plaing-list">
-          <MoviePlaying />
+          <MovieNowPlaying />
         </ul>
       </section>
 
@@ -38,7 +38,7 @@ const Home = () => {
         <h2 className="block-tit rate-tit">Top Rated</h2>
 
         <ul className="media-list rate-list">
-          <MovieRate />
+          <MovieTopRated />
         </ul>
       </section>
 
@@ -46,7 +46,7 @@ const Home = () => {
         <h2 className="block-tit comming-tit">Upcoming</h2>
 
         <ul className="media-list comming-list">
-          <MovieComming />
+          <MovieUpcoming />
         </ul>
       </section>
     </div>

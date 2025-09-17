@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '../../app/store';
-import { fetchTVAiringTodays } from './tvAiringTodaySlice';
+import fetchTVAiringTodays from './tvAiringTodayThunk';
 
 import MediaItem from '../../components/MediaItem';
 
