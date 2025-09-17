@@ -1,4 +1,5 @@
-# MovieApp
+MovieApp
+===
 
 > Vite + React + Redux + TypeScript をベースにした映画情報ウェブアプリケーション
 
@@ -18,43 +19,63 @@ https://developer.themoviedb.org/docs/getting-started**
 <br>
 
 ## ✅ TODO (Pages & Features)
-- [x] 기본 프로젝트 세팅 (Vite + React + Redux + TS)
-- [x] SSR(Server-Side Rendering) 지원
-- [x] 라우팅 & 페이지 구조
-- [x] TMDB API 연결
-- [x] Vercel 배포 테스트
-- [ ] 메인(리스트)
-- [ ] 상세
-- [ ] 북마크
-- [ ] 검색/검색결과
-- [ ] 로그인
-- [ ] 마이페이지
+- [x] プロジェクトの初期設定 (Vite + React + Redux + TS)
+- [x] SSR(Server-Side Rendering)の対応
+- [x] ルーティングおよびページの構造
+- [x] TMDB APIの接続
+- [x] Vercel デプロイテスト
+- [ ] メインページ（リスト）
+- [ ] 詳細ページ
+- [ ] お気に入りページ
+- [ ] 検索・検索結果ページ
+- [ ] サインインページ
+- [ ] マイページ
 - [x] Slide-in Page
 - [ ] Infinite Scrolling
 - [ ] Skeleton Screen
-- [ ] UI 디자인 개선 (다크/라이트 모드, 반응형 최적화)
-- [ ] 테스트 코드(Jest/React Testing Library) 작성
+- [ ] ダーク/ライトモードの切替
+- [ ] レスポンシブの最適化
+- [ ] テストコード(Jest/React Testing Library)の作成
+
+<br>
+
+## 👤 Author / Contributors
+
+- **私** - Frontend Developer  
+  - GitHub: [konsole257](https://github.com/konsole257)  
+  - Email: konsole257@gmail.com
+  - Notion: -
+ 
+<br>
+
+## 🙏 Acknowledgements
+
+- **ChatGPT** - エラー解決および疑問の解消
+- **私の検索結果に表示された方々** - エラー解決およびコード関連の手伝い  
+- **参考資料**
+  - [TMDB API Documentation](https://www.themoviedb.org/documentation/api)
+  - [Vite SSR Guide](https://vitejs.dev/guide/ssr.html)
 
 <br>
 
 ## 📝 Development Log
 
 - **2025-09-10**
-  - 프로젝트 초기 세팅 (Vite + React + TS)
-  - 라우팅 구조 및 페이지 기본 뼈대 작성
+  - プロジェクトの初期設定 (Vite + React + Redux + TS)
+  - ルーティングおよびページの基本構造作成
 
 - **2025-09-12**
-  - TMDB API 연동
-  - 메인(목록) 페이지 구현
+  - TMDB APIの接続
+  - メイン（リスト）パージの実装
 
 - **2025-09-14**
-  - SSR(Server-Side Rendering) 적용
-  - Vercel 배포 테스트
+  - SSR(Server-Side Rendering)の適用
+  - Vercelのデプロイテスト
 
 - **2025-09-16**
-  - Swiper.js 적용 및 Main Hero 배너 추가
+  - Swiper.jsの適用およびメインパージヒーローバナーの追加
 
 - **2025-09-17**
-  - README.md 개선 (TODO, Log 추가)
+  - README.mdの改善（TODO, ログの追加）
 
 
