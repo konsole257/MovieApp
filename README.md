@@ -77,5 +77,6 @@ https://developer.themoviedb.org/docs/getting-started**
 
 - **2025-09-17**
   - README.mdの改善（TODO, ログの追加）
+  - Slice、Thunk、API呼び出しを整理
 
 
