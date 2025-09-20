@@ -14,7 +14,11 @@ interface PopularTVsState {
 };
 
 const initialState: PopularTVsState = {
-  items: [],
+  items: Array.from({length: 11}, (_, i) => ({
+      id: i,
+      name: '',
+      poster_path: ''
+    })),
   loading: true,
   error: null,
 };

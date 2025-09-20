@@ -14,7 +14,11 @@ interface PopularPersonState {
 }
 
 const initialState: PopularPersonState = {
-  items: [],
+  items: Array.from({length: 11}, (_, i) => ({
+      id: i,
+      name: '',
+      profile_path: ''
+    })),
   loading: true,
   error: null,
 };

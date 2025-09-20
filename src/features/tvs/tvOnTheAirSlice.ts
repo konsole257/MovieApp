@@ -3,7 +3,7 @@ import fetchTVOnTheAirs from './tvOnTheAirThunk';
 
 export interface TVOnTheAir {
   id: number;
-  title: string;
+  name: string;
   poster_path: string;
 };
 
@@ -14,7 +14,11 @@ interface TVOnTheAirsState {
 };
 
 const initialState: TVOnTheAirsState = {
-  items: [],
+  items: Array.from({length: 11}, (_, i) => ({
+      id: i,
+      name: '',
+      poster_path: ''
+    })),
   loading: true,
   error: null,
 };
@@ -28,7 +32,7 @@ const TVOnTheAirsSlice = createSlice({
       .addCase(fetchTVOnTheAirs.pending, (state) => {
         state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
-          title: '',
+          name: '',
           poster_path: ''
         }));
         state.loading = true;

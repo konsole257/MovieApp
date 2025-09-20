@@ -45,7 +45,7 @@ useEffect(() => {
   };
 
   fetchInfo();
-});
+}, []);
 // === :Temp
 
   return (

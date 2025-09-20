@@ -14,7 +14,11 @@ interface MovieTopRatedsState {
 };
 
 const initialState: MovieTopRatedsState = {
-  items: [],
+  items: Array.from({length: 11}, (_, i) => ({
+      id: i,
+      title: '',
+      poster_path: ''
+    })),
   loading: true,
   error: null,
 };

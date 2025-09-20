@@ -3,7 +3,7 @@ import fetchTVAiringTodays from './tvAiringTodayThunk';
 
 export interface TVAiringToday {
   id: number;
-  title: string;
+  name: string;
   poster_path: string;
 };
 
@@ -14,7 +14,11 @@ interface TVAiringTodaysState {
 };
 
 const initialState: TVAiringTodaysState = {
-  items: [],
+  items: Array.from({length: 11}, (_, i) => ({
+      id: i,
+      name: '',
+      poster_path: ''
+    })),
   loading: true,
   error: null,
 };
@@ -28,7 +32,7 @@ const TVAiringTodaysSlice = createSlice({
       .addCase(fetchTVAiringTodays.pending, (state) => {
         state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
-          title: '',
+          name: '',
           poster_path: ''
         }));
         state.loading = true;
