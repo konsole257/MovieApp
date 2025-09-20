@@ -15,12 +15,12 @@ const MovieUpcomings = () => {
     dispatch(fetchMovieUpcomings());
   }, [dispatch]);
 
-  if (loading) return <p>Loading movies...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error: {error}</p>;
 
   return (
   <>
-    <MediaItem type="movie" medias={movieUpcomings}/>
+    <MediaItem type="movie" loading={loading} medias={movieUpcomings}/>
   </>
   );
 };

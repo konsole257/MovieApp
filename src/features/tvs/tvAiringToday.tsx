@@ -15,12 +15,12 @@ const TVAiringTodays = () => {
     dispatch(fetchTVAiringTodays());
   }, [dispatch]);
 
-  if (loading) return <p>Loading movies...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error: {error}</p>;
 
   return (
   <>
-    <MediaItem type="tv" medias={tvAiringTodays}/>
+    <MediaItem type="tv" loading={loading} medias={tvAiringTodays}/>
   </>
   );
 };

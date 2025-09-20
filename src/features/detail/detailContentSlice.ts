@@ -58,6 +58,12 @@ const DetailContentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchDetailContents.pending, (state) => {
+        state.item = {
+          id: 0,
+          title: '',
+          name: '',
+          backdrop_path: ''
+        };
         state.loading = true;
         state.error = null;
       })

@@ -15,12 +15,12 @@ const PopularTVs = () => {
     dispatch(fetchPopularTVs());
   }, [dispatch]);
 
-  if(loading) return <p>Loading movies...</p>;
+  // if(loading) return <p>Loading...</p>;
   if(error) return <p>Error: {error}</p>;
 
   return (
   <>
-    <MediaItem type="tv" medias={popularTVs}/>
+    <MediaItem type="tv" loading={loading} medias={popularTVs}/>
   </>
   );
 };

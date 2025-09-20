@@ -26,6 +26,11 @@ const PopularMoviesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularMovies.pending, (state) => {
+        state.items = Array.from({length: 4}, (_, i) => ({
+          id: i,
+          title: '',
+          poster_path: ''
+        }));
         state.loading = true;
         state.error = null;
       })

@@ -1,3 +1,9 @@
+import { useEffect, useState } from 'react';
+import { Pagination, A11y, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import Skeleton from '@/components/Skeleton';
+
 import Tabs from '../components/Tabs';
 import TVAiringToday from '../features/tvs/tvAiringToday';
 import TVOnTheAir from '../features/tvs/tvOnTheAir';
@@ -6,11 +12,41 @@ import TVTopRated from '../features/tvs/tvTopRated';
 import './Home.css';
 
 const Home = () => {
-  const tabData = [
-    { label: 'Popular', link: '/' },
-    { label: 'Movie', link: '/Movie' },
-    { label: 'TV Show', link: '/TV' },
-  ];
+// Temp: ===
+const tabData = [
+  { label: 'Popular', link: '/' },
+  { label: 'Movie', link: '/Movie' },
+  { label: 'TV Show', link: '/TV' },
+];
+
+const [info, setInfo] = useState<any>([])
+const [loading, setLoading] = useState(true);
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`,
+  }
+};
+
+useEffect(() => {
+  const fetchInfo = async () => {
+    try {
+      const res = await fetch('https://api.themoviedb.org/3/tv/119051?language=ja-JP',options);
+      
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      const data = await res.json();
+      setInfo(data);
+    } catch (err: any) {
+      console.error(err);
+    } finally {
+      setTimeout(() => {setLoading(false)}, 100);
+    }
+  };
+
+  fetchInfo();
+});
+// === :Temp
 
   return (
   <>
@@ -20,10 +56,12 @@ const Home = () => {
       <Tabs tabs={tabData} />
 
       <div className="block hero">
-        <div className="hero-div">
-          <figure className="hero-fig"><img  className="hero-img" src="/images/temp/screen@2x.png" alt="" /></figure>
-          <div className="hero-tit ellipsis-line2">Wanda Vision</div>
-        </div>
+        <Swiper modules={[Pagination, A11y, Autoplay]} slidesPerView={1} pagination loop autoplay={{ delay: 3000, disableOnInteraction: false }}>
+          <SwiperSlide className="hero-div">
+            <figure className="hero-fig"><Skeleton loading={loading} className="hero-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.name} /></figure>
+            <div className="hero-tit ellipsis-line2"><Skeleton loading={loading} text={info.name} /></div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <section className="block movie">

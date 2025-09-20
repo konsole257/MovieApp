@@ -26,6 +26,11 @@ const PopularPersonsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularPersons.pending, (state) => {
+        state.items = Array.from({length: 4}, (_, i) => ({
+          id: i,
+          name: '',
+          profile_path: ''
+        }));
         state.loading = true;
         state.error = null;
       })

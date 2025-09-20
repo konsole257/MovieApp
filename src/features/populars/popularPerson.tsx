@@ -15,12 +15,12 @@ const PopularPersons = () => {
     dispatch(fetchPopularPersons());
   }, [dispatch]);
 
-  if(loading) return <p>Loading movies...</p>;
+  // if(loading) return <p>Loading...</p>;
   if(error) return <p>Error: {error}</p>;
 
   return (
   <>
-    <PersonItem persons={popularPersons} />
+    <PersonItem loading={loading} persons={popularPersons} />
   </>
   );
 };

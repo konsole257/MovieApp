@@ -21,7 +21,6 @@
 
   &[class*='active'] {opacity: 1;}
 }
-
-
-.media-list {display: flex;flex-wrap: nowrap;gap: 16px;}
+.media-list,
 .person-list {display: flex;flex-wrap: nowrap;gap: 16px;}
+

@@ -15,12 +15,12 @@ const MovieTopRateds = () => {
     dispatch(fetchMovieTopRateds());
   }, [dispatch]);
 
-  if (loading) return <p>Loading movies...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error: {error}</p>;
 
   return (
   <>
-    <MediaItem type="movie" medias={movieTopRateds}/>
+    <MediaItem type="movie" loading={loading} medias={movieTopRateds}/>
   </>
   );
 };
