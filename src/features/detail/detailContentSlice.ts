@@ -15,7 +15,7 @@ interface DetailContentsState {
 
 const initialState: DetailContentsState = {
   item: null,
-  loading: false,
+  loading: true,
   error: null,
 };
 

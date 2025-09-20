@@ -15,7 +15,7 @@ interface TVAiringTodaysState {
 
 const initialState: TVAiringTodaysState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -26,6 +26,11 @@ const TVAiringTodaysSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTVAiringTodays.pending, (state) => {
+        state.items = Array.from({length: 11}, (_, i) => ({
+          id: i,
+          title: '',
+          poster_path: ''
+        }));
         state.loading = true;
         state.error = null;
       })

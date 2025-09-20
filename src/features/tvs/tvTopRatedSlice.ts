@@ -15,7 +15,7 @@ interface TVTopRatedsState {
 
 const initialState: TVTopRatedsState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -26,6 +26,11 @@ const TVTopRatedsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTVTopRateds.pending, (state) => {
+        state.items = Array.from({length: 11}, (_, i) => ({
+          id: i,
+          title: '',
+          poster_path: ''
+        }));
         state.loading = true;
         state.error = null;
       })

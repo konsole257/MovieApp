@@ -15,7 +15,7 @@ interface PopularTVsState {
 
 const initialState: PopularTVsState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -26,7 +26,7 @@ const PopularTVsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularTVs.pending, (state) => {
-        state.items = Array.from({length: 4}, (_, i) => ({
+        state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
           name: '',
           poster_path: ''

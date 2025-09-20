@@ -15,7 +15,7 @@ interface PopularPersonState {
 
 const initialState: PopularPersonState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -26,7 +26,7 @@ const PopularPersonsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularPersons.pending, (state) => {
-        state.items = Array.from({length: 4}, (_, i) => ({
+        state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
           name: '',
           profile_path: ''

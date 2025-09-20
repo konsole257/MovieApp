@@ -15,7 +15,7 @@ interface PopularMoviesState {
 
 const initialState: PopularMoviesState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -26,7 +26,7 @@ const PopularMoviesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularMovies.pending, (state) => {
-        state.items = Array.from({length: 4}, (_, i) => ({
+        state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
           title: '',
           poster_path: ''
