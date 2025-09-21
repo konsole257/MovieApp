@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '../../app/store';
-import fetchTVOnTheAirs from './tvOnTheAirThunk';
+import type { RootState, AppDispatch } from '@/app/store';
 
-import MediaItem from '../../components/MediaItem';
+import fetchTVOnTheAirs from './tvOnTheAirThunk';
+import MediaItem from '@/components/MediaItem';
 
 const TVOnTheAirs = () => {
   const dispatch = useDispatch<AppDispatch>();

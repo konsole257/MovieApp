@@ -1,15 +1,15 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import PopularMoviesReducer from '../features/populars/popularMovieSlice';
-import PopularTVsReducer from '../features/populars/popularTVSlice';
-import PopularPersonsReducer from '../features/populars/popularPersonSlice';
-import MovieNowPlayingsReducer from '../features/movies/movieNowPlayingSlice';
-import MovieTopRatedsReducer from '../features/movies/movieTopRatedSlice';
-import MovieUpcomingsReducer from '../features/movies/movieUpcomingSlice';
-import TVAiringTodaysReducer from '../features/tvs/tvAiringTodaySlice';
-import TVOnTheAirsReducer from '../features/tvs/tvOnTheAirSlice';
-import TVTopRatedsReducer from '../features/tvs/tvTopRatedSlice';
-import DetailContentsReducer from '../features/detail/detailContentSlice';
+import PopularMoviesReducer from '@/features/populars/popularMovieSlice';
+import PopularTVsReducer from '@/features/populars/popularTVSlice';
+import PopularPersonsReducer from '@/features/populars/popularPersonSlice';
+import MovieNowPlayingsReducer from '@/features/movies/movieNowPlayingSlice';
+import MovieTopRatedsReducer from '@/features/movies/movieTopRatedSlice';
+import MovieUpcomingsReducer from '@/features/movies/movieUpcomingSlice';
+import TVAiringTodaysReducer from '@/features/tvs/tvAiringTodaySlice';
+import TVOnTheAirsReducer from '@/features/tvs/tvOnTheAirSlice';
+import TVTopRatedsReducer from '@/features/tvs/tvTopRatedSlice';
+import DetailContentsReducer from '@/features/detail/detailContentSlice';
 
 const rootReducer = combineReducers({
   popularMovies: PopularMoviesReducer,

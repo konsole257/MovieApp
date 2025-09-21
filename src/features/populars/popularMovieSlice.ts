@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchPopularMovies from './popularMovieThunk';
 
 export interface PopularMovie {

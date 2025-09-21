@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '../../app/store';
-import fetchMovieNowPlayings from './movieNowPlayingThunk';
+import type { RootState, AppDispatch } from '@/app/store';
 
-import MediaItem from '../../components/MediaItem';
+import fetchMovieNowPlayings from './movieNowPlayingThunk';
+import MediaItem from '@/components/MediaItem';
 
 const MovieNowPlayings = () => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchMovieTopRateds from './movieTopRatedThunk';
 
 export interface MovieTopRated {

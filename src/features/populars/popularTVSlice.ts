@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchPopularTVs from './popularTVThunk';
 
 export interface PopularTV {

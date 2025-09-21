@@ -32,7 +32,7 @@ https://developer.themoviedb.org/docs/getting-started**
 - [ ] マイページ
 - [x] Slide-in Page
 - [ ] Infinite Scrolling
-- [ ] Skeleton Screen
+- [x] Skeleton Screen
 - [ ] ダーク/ライトモードの切替
 - [ ] レスポンシブの最適化
 - [ ] テストコード(Jest/React Testing Library)の作成

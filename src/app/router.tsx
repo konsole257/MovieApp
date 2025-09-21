@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from '../layouts/Layout';
-import Home from '../pages/Home';
-import HomeMovie from '../pages/HomeMovie';
-import HomeTV from '../pages/HomeTV';
-import Favorite from '../pages/Favorite';
-import Search from '../pages/Search';
-import Mypage from '../pages/Mypage';
-import Detail from '../pages/Detail';
+import Layout from '@/layouts/Layout';
+import Home from '@/pages/Home';
+import HomeMovie from '@/pages/HomeMovie';
+import HomeTV from '@/pages/HomeTV';
+import Favorite from '@/pages/Favorite';
+import Search from '@/pages/Search';
+import Mypage from '@/pages/Mypage';
+import Detail from '@/pages/Detail';
 
 const AppRouter = () => {
   return (

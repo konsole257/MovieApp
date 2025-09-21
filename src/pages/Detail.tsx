@@ -1,5 +1,6 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import DetailContent from '../features/detail/detailContent';
+import { useNavigate } from 'react-router-dom';
+
+import DetailContent from '@/features/detail/detailContent';
 
 import './Detail.css';
 

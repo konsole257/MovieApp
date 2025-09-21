@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchTVAiringTodays from './tvAiringTodayThunk';
 
 export interface TVAiringToday {

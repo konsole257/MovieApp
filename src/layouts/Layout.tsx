@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from "framer-motion";
 
 import BottomNav from './BottomNav';
-import Detail from '../pages/Detail';
+import Detail from '@/pages/Detail';
 
 import './Layout.css';
 

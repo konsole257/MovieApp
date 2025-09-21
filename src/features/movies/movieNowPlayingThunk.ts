@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import fetchTMDB from '@/api/tmdb';
 import { MovieNowPlaying } from './movieNowPlayingSlice';
 
@@ -6,9 +7,9 @@ const fetchMovieNowPlayings = createAsyncThunk('movies/fetchMovieNowPlaying',
   async (_, { rejectWithValue }) => {
     try {
 
-      const data = await fetchTMDB('/movie/now_playing?language=ja-JP&page=1');
+      const data:{results: MovieNowPlaying[]} = await fetchTMDB('/movie/now_playing?language=ja-JP&page=1');
 
-      return data.results as MovieNowPlaying[];
+      return data.results;
 
     } catch (err: unknown) {
 

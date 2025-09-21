@@ -15,7 +15,7 @@ const Skeleton = ({loading, className, src, alt, text}: SkeletonProps) => {
     ? <div className="skeleton"></div>
     : text
     ? <span className="skelton-txt">{text}</span>
-    : <img className={`skelton-img ${className}`} loading="lazy" src={src} alt={alt} onError={(e) => {e.currentTarget.src = '/images/img-error.png';}} />
+    : <img className={`skelton-img ${className ?? ''}`} loading="lazy" src={src} alt={alt ?? ''} onError={(e) => {e.currentTarget.src = '/images/img-error.png';}} />
     }
   </>
   )

@@ -59,7 +59,7 @@ useEffect(() => {
     } catch (err: any) {
       console.error(err);
     } finally {
-      setTimeout(() => {setLoading(false)}, 100);
+      setLoading(false)
     }
   };
 

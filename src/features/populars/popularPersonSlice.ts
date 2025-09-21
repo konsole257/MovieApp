@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchPopularPersons from './popularPersonThunk';
 
 export interface PopularPerson {

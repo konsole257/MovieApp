@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '../../app/store';
-import fetchPopularPersons from './popularPersonThunk';
+import type { RootState, AppDispatch } from '@/app/store';
 
-import PersonItem from '../../components/PersonItem';
+import fetchPopularPersons from './popularPersonThunk';
+import PersonItem from '@/components/PersonItem';
 
 const PopularPersons = () => {
   const dispatch = useDispatch<AppDispatch>();

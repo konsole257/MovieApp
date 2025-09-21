@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchMovieNowPlayings from './movieNowPlayingThunk';
 
 export interface MovieNowPlaying {

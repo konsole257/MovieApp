@@ -4,10 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Skeleton from '@/components/Skeleton';
 
-import Tabs from '../components/Tabs';
-import TVAiringToday from '../features/tvs/tvAiringToday';
-import TVOnTheAir from '../features/tvs/tvOnTheAir';
-import TVTopRated from '../features/tvs/tvTopRated';
+import Tabs from '@/components/Tabs';
+import TVAiringToday from '@/features/tvs/tvAiringToday';
+import TVOnTheAir from '@/features/tvs/tvOnTheAir';
+import TVTopRated from '@/features/tvs/tvTopRated';
 
 import './Home.css';
 
@@ -40,7 +40,7 @@ useEffect(() => {
     } catch (err: any) {
       console.error(err);
     } finally {
-      setTimeout(() => {setLoading(false)}, 100);
+      setLoading(false)
     }
   };
 
@@ -56,7 +56,7 @@ useEffect(() => {
       <Tabs tabs={tabData} />
 
       <div className="block hero">
-        <Swiper modules={[Pagination, A11y, Autoplay]} slidesPerView={1} pagination loop autoplay={{ delay: 3000, disableOnInteraction: false }}>
+        <Swiper modules={[Pagination, A11y, Autoplay]} slidesPerView={1} pagination autoplay={{ delay: 3000, disableOnInteraction: false }}>
           <SwiperSlide className="hero-div">
             <figure className="hero-fig"><Skeleton loading={loading} className="hero-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.name} /></figure>
             <div className="hero-tit ellipsis-line2"><Skeleton loading={loading} text={info.name} /></div>

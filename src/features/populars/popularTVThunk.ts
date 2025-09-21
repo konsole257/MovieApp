@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import fetchTMDB from '@/api/tmdb';
 import { PopularTV } from './popularTVSlice';
 
@@ -6,9 +7,9 @@ const fetchPopularTVs = createAsyncThunk('populars/fetchPopularTV',
   async (_, { rejectWithValue }) => {
     try {
 
-      const data = await fetchTMDB('/tv/popular?language=ja-JP&page=1');
+      const data:{results: PopularTV[]} = await fetchTMDB('/tv/popular?language=ja-JP&page=1');
 
-      return data.results as PopularTV[];
+      return data.results;
 
     } catch (err: unknown) {
 

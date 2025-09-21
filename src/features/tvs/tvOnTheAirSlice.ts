@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchTVOnTheAirs from './tvOnTheAirThunk';
 
 export interface TVOnTheAir {

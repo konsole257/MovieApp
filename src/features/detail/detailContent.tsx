@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '../../app/store';
-import { fetchDetailContents } from './detailContentSlice';
+import type { RootState, AppDispatch } from '@/app/store';
 
+import fetchDetailContents from './detailContentThunk';
 import Skeleton from '@/components/Skeleton';
 
 const DetailContents = () => {
