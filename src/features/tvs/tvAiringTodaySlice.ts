@@ -45,7 +45,7 @@ const TVAiringTodaysSlice = createSlice({
       })
       .addCase(fetchTVAiringTodays.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string || action.error.message || 'Failed to fetch movies';
+        state.error = action.payload as string || action.error.message || 'Failed to fetch';
       });
   },
 });

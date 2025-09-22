@@ -7,6 +7,7 @@ export interface DetailContent {
   title?: string;
   name?: string;
   backdrop_path: string;
+  overview?: string;
 };
 
 interface DetailContentsState {
@@ -32,7 +33,8 @@ const DetailContentsSlice = createSlice({
           id: 0,
           title: '',
           name: '',
-          backdrop_path: ''
+          backdrop_path: '',
+          overview: ''
         };
         state.loading = true;
         state.error = null;
@@ -43,7 +45,7 @@ const DetailContentsSlice = createSlice({
       })
       .addCase(fetchDetailContents.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string || action.error.message || 'Failed to fetch movies';
+        state.error = action.payload as string || action.error.message || 'Failed to fetch';
       });
   },
 });

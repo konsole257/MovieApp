@@ -4,7 +4,8 @@
 * --------------------------------
 */
 
-.skeleton {position: relative;height: 100%;border-radius: 4px;background-color: var(--color-black);overflow: hidden;}
+*:has(> .skeleton) {display: flex !important;}
+.skeleton {flex: 1;position: relative;border-radius: 8px;background-color: var(--color-black);overflow: hidden;}
 .skeleton:after {content: '';animation: shimmer 1.5s infinite;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);}
 .skelton-img {animation: fade-in .3s;}
 .skelton-txt {animation: fade-in .3s;}

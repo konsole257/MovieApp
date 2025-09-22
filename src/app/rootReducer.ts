@@ -1,5 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
+import HomeHerosReducer from '@/features/home/homeHeroSlice';
 import PopularMoviesReducer from '@/features/populars/popularMovieSlice';
 import PopularTVsReducer from '@/features/populars/popularTVSlice';
 import PopularPersonsReducer from '@/features/populars/popularPersonSlice';
@@ -12,6 +13,7 @@ import TVTopRatedsReducer from '@/features/tvs/tvTopRatedSlice';
 import DetailContentsReducer from '@/features/detail/detailContentSlice';
 
 const rootReducer = combineReducers({
+  homeHeros: HomeHerosReducer,
   popularMovies: PopularMoviesReducer,
   popularTVs: PopularTVsReducer,
   popularPersons: PopularPersonsReducer,

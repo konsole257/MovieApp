@@ -12,7 +12,7 @@
 --color-black: #000;
 --color-background: #242424;
 }
-:root {font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;font-weight: 400;font-size: 14px;color: var(--color-white);word-break: keep-all;word-wrap: break-word;background-color: var(--color-background);color-scheme: light dark;font-synthesis: none;text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+:root {font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;font-weight: 400;font-size: 14px;color: var(--color-white);word-break: break-word;background-color: var(--color-background);color-scheme: light dark;font-synthesis: none;text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
 h1,h2,h3,h4,h5,h6 {font-weight: 700;margin: 0;}
 ul, ol {padding: 0;margin: 0;list-style: none;}
 table {table-layout: fixed;width: 100%;border-collapse: collapse;border-spacing: 0;}

@@ -10,8 +10,9 @@
 .page-header .btn-back .icon-arrow {display: inline-block;position: relative;width: 18px;height: 16px;}
 .page-header .btn-back .icon-arrow:before {content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-image: url('@/assets/images/layouts/icon-arrow.svg');}
 .page-cotents {min-height: 110dvh;}
-.page-cotents .cover-fig {position: relative;height: 210px;overflow: hidden;}
+.page-cotents .cover-fig {display: flex;position: relative;height: 210px;overflow: hidden;}
 .page-cotents .cover-fig:before {content:''; position: absolute;z-index: 1;top: 0;left: 0;width: 100vw;height: 50px;background-image: linear-gradient(rgba(36, 36, 36, 1), rgba(0, 0, 0, 0));}
 .page-cotents .cover-fig:after {content:''; position: absolute;z-index: 1;bottom: 0;left: 0;width: 100%;height: 50px;background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(36, 36, 36, 1));}
 .page-cotents .cover-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
-.page-cotents .tit {height: 18px;padding: 16px;}
+.page-cotents .tit {display: flex;min-height: 18px;font-weight: 700;padding: 16px 16px 8px;}
+.page-cotents .overview {display: flex;min-height: 200px;line-height: 1.5;padding: 8px 16px 16px;}

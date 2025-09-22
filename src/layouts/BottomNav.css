@@ -4,7 +4,7 @@
 * --------------------------------
 */
 
-#bottomnav {position: sticky;bottom:0;z-index: 1;width: 100vw;padding-bottom: var(--safe-bottom);border-top-right-radius: 15px;border-top-left-radius: 15px;background-color: #000;box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.5);overflow: hidden;}
+#bottomnav {position: sticky;bottom:0;z-index: 100;width: 100vw;padding-bottom: var(--safe-bottom);border-top-right-radius: 15px;border-top-left-radius: 15px;background-color: #000;box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.5);overflow: hidden;}
 #bottomnav .nav-list {display: flex;height: 68px;}
 #bottomnav .nav-item {flex: 1;}
 #bottomnav .nav-link {display: flex;justify-content: center;align-items: center;height: 100%;}

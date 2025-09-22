@@ -1,67 +1,55 @@
 import { useEffect, useState } from 'react';
-import { Pagination, A11y, Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Skeleton from '@/components/Skeleton';
+import { Tabs } from '@/components/Tabs';
 
-import Tabs from '@/components/Tabs';
+import HomeHeros from '@/features/home/homeHero';
 import TVAiringToday from '@/features/tvs/tvAiringToday';
 import TVOnTheAir from '@/features/tvs/tvOnTheAir';
 import TVTopRated from '@/features/tvs/tvTopRated';
 
+
 import './Home.css';
 
 const Home = () => {
-// Temp: ===
-const tabData = [
-  { label: 'Popular', link: '/' },
-  { label: 'Movie', link: '/Movie' },
-  { label: 'TV Show', link: '/TV' },
-];
+  // Temp: ===
+  const tabData = [
+    { label: 'Popular', link: '/' },
+    { label: 'Movie', link: '/Movie' },
+    { label: 'TV Show', link: '/TV' },
+  ];
 
-const [info, setInfo] = useState<any>([])
-const [loading, setLoading] = useState(true);
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`,
-  }
-};
+  const [tabShow, setTabShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-useEffect(() => {
-  const fetchInfo = async () => {
-    try {
-      const res = await fetch('https://api.themoviedb.org/3/tv/119051?language=ja-JP',options);
-      
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      const data = await res.json();
-      setInfo(data);
-    } catch (err: any) {
-      console.error(err);
-    } finally {
-      setLoading(false)
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
 
-  fetchInfo();
-}, []);
-// === :Temp
+      if (currentY === 0) {
+        setTabShow(true);
+      } else if (currentY > 50) {
+        setTabShow(currentY < lastScrollY);
+      }
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+  // === :Temp
 
   return (
   <>
     <div className="page home">
       <h1 className="page-tit">Home</h1>
 
-      <Tabs tabs={tabData} />
+      <div className={`tabs ${tabShow ? 'sticky':''}`}>
+        <Tabs tabs={tabData} />
+      </div>
 
       <div className="block hero">
-        <Swiper modules={[Pagination, A11y, Autoplay]} slidesPerView={1} pagination autoplay={{ delay: 3000, disableOnInteraction: false }}>
-          <SwiperSlide className="hero-div">
-            <figure className="hero-fig"><Skeleton loading={loading} className="hero-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.name} /></figure>
-            <div className="hero-tit ellipsis-line2"><Skeleton loading={loading} text={info.name} /></div>
-          </SwiperSlide>
-        </Swiper>
+        <HomeHeros />
       </div>
 
       <section className="block movie">

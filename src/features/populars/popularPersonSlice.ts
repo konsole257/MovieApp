@@ -45,7 +45,7 @@ const PopularPersonsSlice = createSlice({
       })
       .addCase(fetchPopularPersons.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string || action.error.message || 'Failed to fetch Data';
+        state.error = action.payload as string || action.error.message || 'Failed to fetch';
       });
   },
 });

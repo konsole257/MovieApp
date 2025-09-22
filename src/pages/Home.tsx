@@ -1,104 +1,57 @@
 import { useEffect, useState } from 'react';
-import { Pagination, A11y, Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Skeleton from '@/components/Skeleton';
+import {Tabs, Tab} from '@/components/Tabs';
 
-import Tabs from '@/components/Tabs';
-import PopularMovies from '@/features/populars/popularMovie';
-import PopularTVs from '@/features/populars/popularTV';
-import PopularPersons from '@/features/populars/popularPerson';
+import HomeVideos from '@/features/home/homeVideo';
+// import PopularMovies from '@/features/populars/popularMovie';
+// import PopularTVs from '@/features/populars/popularTV';
+// import PopularPersons from '@/features/populars/popularPerson';
+
 
 import './Home.css';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 const Home = () => {
-// Temp: ===
-const tabData = [
-  { label: 'Popular', link: '/' },
-  { label: 'Movie', link: '/Movie' },
-  { label: 'TV Show', link: '/TV' },
-];
+  // Temp: ===
+  const [tabShow, setTabShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-const [videos, setVideos] = useState<any>([])
-const [info, setInfo] = useState<any>([])
-const [loading, setLoading] = useState(true);
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`,
-  }
-};
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
 
-useEffect(() => {
-  const fetchVideos = async () => {
-    try {
-      const res = await fetch('https://api.themoviedb.org/3/movie/1311031/videos?language=ja-JP', options);
+      if (currentY === 0) {
+        setTabShow(true);
+      } else if (currentY > 50) {
+        setTabShow(currentY < lastScrollY);
+      }
 
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      const data = await res.json();
-      setVideos(data.results);
-    } catch (err: any) {
-      console.error(err);
-    } finally {
-      
-    }
-  };
+      setLastScrollY(currentY);
+    };
 
-  fetchVideos();
-  
-  const fetchInfo = async () => {
-    try {
-      const res = await fetch('https://api.themoviedb.org/3/movie/1311031?language=ja-JP',options);
-      
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      const data = await res.json();
-      setInfo(data);
-    } catch (err: any) {
-      console.error(err);
-    } finally {
-      setLoading(false)
-    }
-  };
-
-  fetchInfo();
-}, []);
-// === :Temp
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+    
+  }, [lastScrollY]);
+  // === :Temp
 
   return (
   <>
     <div className="page home">
       <h1 className="page-tit">Home</h1>
 
-      <Tabs tabs={tabData} />
-
-      {/* {videos.map((video: any) => (
-        <div key={video.id}>
-          <iframe
-          src={`https://www.youtube.com/embed/${video.key}`} 
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen></iframe>
-        </div>
-      ))} */}
-
-      <div className="block hero">
-        <Swiper modules={[Pagination, A11y, Autoplay]} slidesPerView={1} pagination loop autoplay={{ delay: 3000, disableOnInteraction: false }}>
-          <SwiperSlide className="hero-div">
-            <figure className="hero-fig"><Skeleton loading={loading} className="hero-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
-            <div className="hero-tit ellipsis-line2"><Skeleton loading={loading} text={info.title} /></div>
-          </SwiperSlide>
-          <SwiperSlide className="hero-div">
-            <figure className="hero-fig"><Skeleton loading={loading} className="hero-img" src={`https://image.tmdb.org/t/p/w1280${info.backdrop_path}`} alt={info.title} /></figure>
-            <div className="hero-tit ellipsis-line2"><Skeleton loading={loading} text={info.title} /></div>
-          </SwiperSlide>
-        </Swiper>
+      <div className={`tabs ${tabShow ? 'sticky':''}`}>
+        <Tabs>
+          <Tab label="Home" link="/" />
+          <Tab label="Movie" link="/Movie" />
+          <Tab label="TV Show" link="/TV" />
+        </Tabs>
       </div>
 
-      <section className="block movie">
+      <div className="block video">
+        <HomeVideos />
+      </div>
+
+      {/* <section className="block movie">
         <h2 className="block-tit movie-tit">Movies</h2>
 
         <ul className="media-list movie-list">
@@ -120,7 +73,7 @@ useEffect(() => {
         <ul className="person-list">
           <PopularPersons />
         </ul>
-      </section>
+      </section> */}
     </div>
   </>
   );

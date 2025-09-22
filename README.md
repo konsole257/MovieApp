@@ -82,3 +82,5 @@ https://developer.themoviedb.org/docs/getting-started**
 - **2025-09-20**
   - Main Skeleton 適用
 
+- **2025-09-22**
+  - Main Menu, Main Layout変更
