@@ -13,7 +13,7 @@ import './Home.css';
 const Home = () => {
   // Temp: ===
   const tabData = [
-    { label: 'Popular', link: '/' },
+    { label: 'Home', link: '/' },
     { label: 'Movie', link: '/Movie' },
     { label: 'TV Show', link: '/TV' },
   ];
