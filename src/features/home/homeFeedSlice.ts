@@ -1,65 +1,65 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchHomeHeros from './homeHeroThunk';
+import { fetchHomeFeeds } from './homeFeedThunk';
 
-export interface HomeHeroVideo {
+export interface HomeFeedTrailer {
   id: number;
   key?: string;
   name?: string;
 }
 
-export interface HomeHero {
+export interface HomeFeed {
   id: number;
   title: string;
   backdrop_path: string;
   release_date: string;
-  videos: HomeHeroVideo[];
+  trailers: HomeFeedTrailer[];
 };
 
-interface MovieUpcomingsState {
-  items: HomeHero[];
+interface HomeFeedsState {
+  items: HomeFeed[];
   loading: boolean;
   error: string | null;
 };
 
-const initialState: MovieUpcomingsState = {
+const initialState: HomeFeedsState = {
   items: Array.from({length: 11}, (_, i) => ({
       id: i,
       title: '',
       backdrop_path: '',
       release_date: '',
-      videos: []
+      trailers: []
     })),
   loading: true,
   error: null,
 };
 
-const MovieUpcomingsSlice = createSlice({
-  name: 'homeHeros',
+export const HomeFeedsSlice = createSlice({
+  name: 'homeFeeds',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchHomeHeros.pending, (state) => {
+      .addCase(fetchHomeFeeds.pending, (state) => {
         state.items = Array.from({length: 11}, (_, i) => ({
           id: i,
           title: '',
           backdrop_path: '',
           release_date: '',
-          videos: []
+          trailers: []
         }));
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchHomeHeros.fulfilled, (state, action) => {
+      .addCase(fetchHomeFeeds.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
       })
-      .addCase(fetchHomeHeros.rejected, (state, action) => {
+      .addCase(fetchHomeFeeds.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string || action.error.message || 'Failed to fetch';
       });
   },
 });
 
-export default MovieUpcomingsSlice.reducer;
+export const HomeFeedsReducer = HomeFeedsSlice.reducer;

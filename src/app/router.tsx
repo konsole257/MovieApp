@@ -1,30 +1,31 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from '@/layouts/Layout';
-import Home from '@/pages/Home';
-import HomeMovie from '@/pages/HomeMovie';
-import HomeTV from '@/pages/HomeTV';
-import Favorite from '@/pages/Favorite';
-import Search from '@/pages/Search';
-import Mypage from '@/pages/Mypage';
-import Detail from '@/pages/Detail';
+import { Layout } from '@/layouts/Layout';
+import { Home } from '@/pages/Home';
+import { HomeMovie } from '@/pages/HomeMovie';
+import { HomeTV } from '@/pages/HomeTV';
+import { Favorite } from '@/pages/Favorite';
+import { Search } from '@/pages/Search';
+import { Mypage } from '@/pages/Mypage';
+import { Detail } from '@/pages/Detail';
+import { Trailer } from '@/pages/Trailer';
 
-const AppRouter = () => {
+export const AppRouter = () => {
   return (
   <>
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/Popular" element={<Home />}>
-          <Route path="Detail/:type/:id" element={<Detail />} />
+        <Route path="/" element={<Home />}>
+          <Route path="Detail/:id" element={<Detail />} />
+          <Route path="Trailer/:id" element={<Trailer />} />
         </Route>
         <Route path="/Movie" element={<HomeMovie />}>
-          <Route path="Detail/:type/:id" element={<Detail />} />
+          <Route path="Detail/:id" element={<Detail />} />
         </Route>
         <Route path="/TV" element={<HomeTV />}>
-          <Route path="Detail/:type/:id" element={<Detail />} />
+          <Route path="Detail/:id" element={<Detail />} />
         </Route>
         <Route path="/Person" element={<HomeTV />}>
-          <Route path="Detail/:type/:id" element={<Detail />} />
+          <Route path="Detail/:id" element={<Detail />} />
         </Route>
 
         <Route path="/Favorite" element={<Favorite />} />
@@ -35,5 +36,3 @@ const AppRouter = () => {
   </>
   )
 };
-
-export default AppRouter;

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
-import App from './App';
+import { App } from './App';
 
 hydrateRoot(
   document.getElementById('root') as HTMLElement,
@@ -15,4 +15,4 @@ hydrateRoot(
       </BrowserRouter>
     </Provider>
   </StrictMode>
-)
+);

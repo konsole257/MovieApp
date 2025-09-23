@@ -1,0 +1,14 @@
+/**
+* --------------------------------
+* Detail Content CSS
+* --------------------------------
+*/
+
+.cover-fig {display: flex;position: relative;height: 210px;overflow: hidden;}
+.cover-fig:before {content:''; position: absolute;z-index: 1;top: 0;left: 0;width: 100vw;height: 50px;background-image: linear-gradient(rgba(36, 36, 36, 1), rgba(0, 0, 0, 0));}
+.cover-fig:after {content:''; position: absolute;z-index: 1;bottom: 0;left: 0;width: 100%;height: 50px;background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(36, 36, 36, 1));}
+.cover-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
+.tit {display: flex;min-height: 18px;font-weight: 700;padding: 16px 16px 8px;}
+.overview {display: flex;min-height: 200px;line-height: 1.5;padding: 8px 16px 16px;}
+.iframe {display: flex;justify-content: center;align-items: center;height: 100dvh;}
+iframe {width: 100%;}

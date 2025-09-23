@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchTVTopRateds from './tvTopRatedThunk';
+import { fetchTVTopRateds } from './tvTopRatedThunk';
 
 export interface TVTopRated {
   id: number;
@@ -24,7 +24,7 @@ const initialState: TVTopRatedsState = {
   error: null,
 };
 
-const TVTopRatedsSlice = createSlice({
+export const TVTopRatedsSlice = createSlice({
   name: 'tvTopRateds',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const TVTopRatedsSlice = createSlice({
   },
 });
 
-export default TVTopRatedsSlice.reducer;
+export const TVTopRatedsReducer = TVTopRatedsSlice.reducer;

@@ -80,7 +80,11 @@ https://developer.themoviedb.org/docs/getting-started**
   - Slice、Thunk、API呼び出しを整理
 
 - **2025-09-20**
-  - Main Skeleton 適用
+  - Main Skeleton適用
 
 - **2025-09-22**
   - Main Menu, Main Layout変更
+
+- **2025-09-23**
+  - Home UI Component, Hookの整理
+  - Default ExportをNamed Exportに変更

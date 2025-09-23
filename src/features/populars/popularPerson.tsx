@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchPopularPersons from './popularPersonThunk';
-import PersonItem from '@/components/PersonItem';
+import { fetchPopularPersons } from './popularPersonThunk';
+import { PersonItem } from '@/components/PersonItem';
 
-const PopularPersons = () => {
+export const PopularPerson = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: popularPersons, loading, error } = useSelector(
     (state: RootState) => state.popularPersons
@@ -22,7 +22,5 @@ const PopularPersons = () => {
   <>
     <PersonItem loading={loading} persons={popularPersons} />
   </>
-  );
+  )
 };
-
-export default PopularPersons;

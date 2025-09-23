@@ -1,14 +1,16 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from "framer-motion";
 
-import BottomNav from './BottomNav';
-import Detail from '@/pages/Detail';
+import { BottomNav } from './BottomNav';
+import { Detail } from '@/pages/Detail';
+import { Trailer } from '@/pages/Trailer';
 
 import './Layout.css';
 
-const Layout = () => {
+export const Layout = () => {
   const location = useLocation();
-  const showDetail = location.pathname.includes("/Detail");
+  const isDetail = location.pathname.includes("/Detail");
+  const isTrailer = location.pathname.includes("/Trailer");
 
   return (
   <>
@@ -21,7 +23,7 @@ const Layout = () => {
     <BottomNav />
 
     <AnimatePresence>
-      {showDetail && (
+      {isDetail && (
         <motion.div
           key={location.pathname}
           initial={{ x: "100%" }}
@@ -34,8 +36,21 @@ const Layout = () => {
         </motion.div>
       )}
     </AnimatePresence>
-  </>
-  );
-}
 
-export default Layout;
+    <AnimatePresence>
+      {isTrailer && (
+        <motion.div
+          key={location.pathname}
+          initial={{ y: "-100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.3 }}
+          className="page-overlay"
+        >
+          <Trailer />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </>
+  )
+};

@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchTVAiringTodays from './tvAiringTodayThunk';
-import MediaItem from '@/components/MediaItem';
+import { fetchTVAiringTodays } from './tvAiringTodayThunk';
+import { MediaItem } from '@/components/MediaItem';
 
-const TVAiringTodays = () => {
+export const TVAiringToday = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: tvAiringTodays, loading, error } = useSelector(
     (state: RootState) => state.tvAiringTodays
@@ -22,7 +22,5 @@ const TVAiringTodays = () => {
   <>
     <MediaItem type="tv" loading={loading} medias={tvAiringTodays}/>
   </>
-  );
+  )
 };
-
-export default TVAiringTodays;

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchTVAiringTodays from './tvAiringTodayThunk';
+import { fetchTVAiringTodays } from './tvAiringTodayThunk';
 
 export interface TVAiringToday {
   id: number;
@@ -24,7 +24,7 @@ const initialState: TVAiringTodaysState = {
   error: null,
 };
 
-const TVAiringTodaysSlice = createSlice({
+export const TVAiringTodaysSlice = createSlice({
   name: 'tvAiringTodays',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const TVAiringTodaysSlice = createSlice({
   },
 });
 
-export default TVAiringTodaysSlice.reducer;
+export const TVAiringTodaysReducer = TVAiringTodaysSlice.reducer;

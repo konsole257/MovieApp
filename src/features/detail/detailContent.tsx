@@ -1,24 +1,10 @@
-import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import type { RootState, AppDispatch } from '@/app/store';
+import { Skeleton } from '@/components/Skeleton';
 
-import fetchDetailContents from './detailContentThunk';
-import Skeleton from '@/components/Skeleton';
+import { useDetailContent } from './useDetailContent';
+import './detailContent.css';
 
-const DetailContents = () => {
-  const location = useLocation();
-  const { type='', id='' } = useParams<{ type: string, id: string }>();
-  // const type = location.pathname.split('/').filter(Boolean)[0];
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { item: detailContent, loading, error } = useSelector(
-    (state: RootState) => state.detailContent
-  );
-  
-  useEffect(() => {
-    if(type&&id) dispatch(fetchDetailContents({type, id}));
-  }, [dispatch]);
+export const DetailContents = () => {
+  const { detailContent, loading, error } = useDetailContent();
 
   // if(loading) return <p>Loading...</p>;
   if(error) return <p>Error: {error}</p>;
@@ -30,7 +16,5 @@ const DetailContents = () => {
     <div className="tit"><Skeleton loading={loading} text={detailContent.title ? detailContent.title : detailContent.name} /></div>
     {/* <div className="overview"><Skeleton loading={loading} text={detailContent.overview} /></div> */}
   </>
-  );
+  )
 };
-
-export default DetailContents;

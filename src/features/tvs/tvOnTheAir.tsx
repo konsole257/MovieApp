@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchTVOnTheAirs from './tvOnTheAirThunk';
-import MediaItem from '@/components/MediaItem';
+import { fetchTVOnTheAirs } from './tvOnTheAirThunk';
+import { MediaItem } from '@/components/MediaItem';
 
-const TVOnTheAirs = () => {
+export const TVOnTheAir = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: tvOnTheAirs, loading, error } = useSelector(
     (state: RootState) => state.tvOnTheAirs
@@ -22,7 +22,5 @@ const TVOnTheAirs = () => {
   <>
     <MediaItem type="tv" loading={loading} medias={tvOnTheAirs}/>
   </>
-  );
+  )
 };
-
-export default TVOnTheAirs;

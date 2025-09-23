@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import fetchTMDB from '@/api/tmdb';
+import { fetchTMDB } from '@/api/tmdb';
 import { DetailContent } from './detailContentSlice';
 
-const fetchDetailContents = createAsyncThunk('detail/fetchDetailContent',
+export const fetchDetailContents = createAsyncThunk('detail/fetchDetailContent',
   async ({type, id}: {type: string, id: string}, { rejectWithValue }) => {
     try {
 
@@ -21,5 +21,3 @@ const fetchDetailContents = createAsyncThunk('detail/fetchDetailContent',
     }
   }
 );
-
-export default fetchDetailContents;

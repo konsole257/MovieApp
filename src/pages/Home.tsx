@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import {Tabs, Tab} from '@/components/Tabs';
+import { Tabs, Tab } from '@/components/Tabs';
 
-import HomeVideos from '@/features/home/homeVideo';
+import { HomeFeed } from '@/features/home/homeFeed';
 // import PopularMovies from '@/features/populars/popularMovie';
 // import PopularTVs from '@/features/populars/popularTV';
 // import PopularPersons from '@/features/populars/popularPerson';
@@ -10,7 +10,7 @@ import HomeVideos from '@/features/home/homeVideo';
 
 import './Home.css';
 
-const Home = () => {
+export const Home = () => {
   // Temp: ===
   const [tabShow, setTabShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -47,8 +47,8 @@ const Home = () => {
         </Tabs>
       </div>
 
-      <div className="block video">
-        <HomeVideos />
+      <div className="block feed">
+        <HomeFeed />
       </div>
 
       {/* <section className="block movie">
@@ -76,7 +76,5 @@ const Home = () => {
       </section> */}
     </div>
   </>
-  );
+  )
 };
-
-export default Home;

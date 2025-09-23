@@ -1,6 +1,6 @@
 const TMDB_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
-const fetchTMDB = async (endpoint: string) => {
+export const fetchTMDB = async (endpoint: string) => {
   try {
     const res = await fetch(`https://api.themoviedb.org/3/${endpoint}`,
       {
@@ -26,5 +26,3 @@ const fetchTMDB = async (endpoint: string) => {
     throw new Error('Network error');
   }
 };
-
-export default fetchTMDB;

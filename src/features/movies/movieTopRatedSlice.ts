@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchMovieTopRateds from './movieTopRatedThunk';
+import { fetchMovieTopRateds } from './movieTopRatedThunk';
 
 export interface MovieTopRated {
   id: number;
@@ -24,7 +24,7 @@ const initialState: MovieTopRatedsState = {
   error: null,
 };
 
-const MovieTopRatedsSlice = createSlice({
+export const MovieTopRatedsSlice = createSlice({
   name: 'movieRates',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const MovieTopRatedsSlice = createSlice({
   },
 });
 
-export default MovieTopRatedsSlice.reducer;
+export const MovieTopRatedsReducer = MovieTopRatedsSlice.reducer;

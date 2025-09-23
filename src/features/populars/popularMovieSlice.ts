@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchPopularMovies from './popularMovieThunk';
+import { fetchPopularMovies } from './popularMovieThunk';
 
 export interface PopularMovie {
   id: number;
@@ -24,7 +24,7 @@ const initialState: PopularMoviesState = {
   error: null,
 };
 
-const PopularMoviesSlice = createSlice({
+export const PopularMoviesSlice = createSlice({
   name: 'popularMovies',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const PopularMoviesSlice = createSlice({
   },
 });
 
-export default PopularMoviesSlice.reducer;
+export const PopularMoviesReducer = PopularMoviesSlice.reducer;

@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchTVTopRateds from './tvTopRatedThunk';
-import MediaItem from '@/components/MediaItem';
+import { fetchTVTopRateds } from './tvTopRatedThunk';
+import { MediaItem } from '@/components/MediaItem';
 
-const TVTopRateds = () => {
+export const TVTopRated = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: tvTopRateds, loading, error } = useSelector(
     (state: RootState) => state.tvTopRateds
@@ -22,7 +22,5 @@ const TVTopRateds = () => {
   <>
     <MediaItem type="tv" loading={loading} medias={tvTopRateds}/>
   </>
-  );
+  )
 };
-
-export default TVTopRateds;

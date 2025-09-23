@@ -1,14 +1,13 @@
-import AppRouter from './app/router';
+import { AppRouter } from './app/router';
 
 import 'normalize.css';
 import './Init.css';
 
-const App = () => {
+export const App = () => {
+  
   return (
   <>
     <AppRouter />
   </>
   )
-}
-
-export default App;
+};

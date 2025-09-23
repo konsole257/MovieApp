@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchTVOnTheAirs from './tvOnTheAirThunk';
+import { fetchTVOnTheAirs } from './tvOnTheAirThunk';
 
 export interface TVOnTheAir {
   id: number;
@@ -24,7 +24,7 @@ const initialState: TVOnTheAirsState = {
   error: null,
 };
 
-const TVOnTheAirsSlice = createSlice({
+export const TVOnTheAirsSlice = createSlice({
   name: 'tvOnTheAirs',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const TVOnTheAirsSlice = createSlice({
   },
 });
 
-export default TVOnTheAirsSlice.reducer;
+export const TVOnTheAirsReducer = TVOnTheAirsSlice.reducer;

@@ -8,7 +8,7 @@ interface SkeletonProps {
   text?: string;
 }
 
-const Skeleton = ({loading, className, src, alt, text}: SkeletonProps) => {
+export const Skeleton = ({loading, className, src, alt, text}: SkeletonProps) => {
   return (
   <>
     {loading
@@ -19,6 +19,4 @@ const Skeleton = ({loading, className, src, alt, text}: SkeletonProps) => {
     }
   </>
   )
-}
-
-export default Skeleton;
+};

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import fetchTMDB from '@/api/tmdb';
+import { fetchTMDB } from '@/api/tmdb';
 import { PopularTV } from './popularTVSlice';
 
-const fetchPopularTVs = createAsyncThunk('populars/fetchPopularTV',
+export const fetchPopularTVs = createAsyncThunk('populars/fetchPopularTV',
   async (_, { rejectWithValue }) => {
     try {
 
@@ -21,5 +21,3 @@ const fetchPopularTVs = createAsyncThunk('populars/fetchPopularTV',
     }
   }
 );
-
-export default fetchPopularTVs;

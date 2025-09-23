@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchMovieUpcomings from './movieUpcomingThunk';
+import { fetchMovieUpcomings } from './movieUpcomingThunk';
 
 export interface MovieUpcoming {
   id: number;
@@ -24,7 +24,7 @@ const initialState: MovieUpcomingsState = {
   error: null,
 };
 
-const MovieUpcomingsSlice = createSlice({
+export const MovieUpcomingsSlice = createSlice({
   name: 'movieCommings',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const MovieUpcomingsSlice = createSlice({
   },
 });
 
-export default MovieUpcomingsSlice.reducer;
+export const MovieUpcomingsReducer = MovieUpcomingsSlice.reducer;

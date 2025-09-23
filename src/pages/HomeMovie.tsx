@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 
 import { Tabs } from '@/components/Tabs';
 
-import HomeHeros from '@/features/home/homeHero';
-import MovieNowPlaying from '@/features/movies/movieNowPlaying';
-import MovieTopRated from '@/features/movies/movieTopRated';
-import MovieUpcoming from '@/features/movies/movieUpcoming';
+import { HomeHero } from '@/features/home/homeHero';
+import { MovieNowPlaying } from '@/features/movies/movieNowPlaying';
+import { MovieTopRated } from '@/features/movies/movieTopRated';
+import { MovieUpcoming } from '@/features/movies/movieUpcoming';
 
 
 import './Home.css';
 
-const Home = () => {
+export const HomeMovie = () => {
   // Temp: ===
   const tabData = [
     { label: 'Home', link: '/' },
@@ -49,7 +49,7 @@ const Home = () => {
       </div>
 
       <div className="block hero">
-        <HomeHeros />
+        <HomeHero />
       </div>
 
       <section className="block plaing">
@@ -77,7 +77,5 @@ const Home = () => {
       </section>
     </div>
   </>
-  );
+  )
 };
-
-export default Home;

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import Skeleton from '@/components/Skeleton';
+import { Skeleton } from '@/components/Skeleton';
 
 import './PersonItem.css';
 
@@ -15,7 +15,7 @@ interface PersonsProps {
   persons: Person[];
 }
 
-const PersonItem = ({loading, persons}: PersonsProps) => {
+export const PersonItem = ({loading, persons}: PersonsProps) => {
   return (
   <>
     {persons.map((person) => (
@@ -28,6 +28,4 @@ const PersonItem = ({loading, persons}: PersonsProps) => {
     ))}
   </>
   )
-}
-
-export default PersonItem;
+};

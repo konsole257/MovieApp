@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchMovieTopRateds from './movieTopRatedThunk';
-import MediaItem from '@/components/MediaItem';
+import { fetchMovieTopRateds } from './movieTopRatedThunk';
+import { MediaItem } from '@/components/MediaItem';
 
-const MovieTopRateds = () => {
+export const MovieTopRated = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: movieTopRateds, loading, error } = useSelector(
     (state: RootState) => state.movieTopRateds
@@ -22,7 +22,5 @@ const MovieTopRateds = () => {
   <>
     <MediaItem type="movie" loading={loading} medias={movieTopRateds}/>
   </>
-  );
+  )
 };
-
-export default MovieTopRateds;

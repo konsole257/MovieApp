@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import fetchTMDB from '@/api/tmdb';
-import { HomeHero, HomeHeroVideo } from './homeHeroSlice';
+import { fetchTMDB } from '@/api/tmdb';
+import { HomeFeed, HomeFeedTrailer } from './homeFeedSlice';
 
-const fetchHomeHeros = createAsyncThunk('home/fetchHomeHeros',
+export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
   async (_, { rejectWithValue }) => {
     try {
       
@@ -29,21 +29,21 @@ const fetchHomeHeros = createAsyncThunk('home/fetchHomeHeros',
         "with_runtime.lte=400",
       ].join("&");
 
-      const data:{results: HomeHero[]} = await fetchTMDB(`discover/movie?language=ja-JP&page=1&${sort}`);
+      const data:{results: HomeFeed[]} = await fetchTMDB(`discover/movie?language=ja-JP&page=1&${sort}`);
 
-      const videoData: HomeHero[] = await Promise.all(
+      const trailerData: HomeFeed[] = await Promise.all(
         data.results.map(async (movie) => {
           try{
-            const videoRes:{results: HomeHeroVideo[]} = await fetchTMDB(`/movie/${movie.id}/videos?language=ja-JP`);
+            const trailerRes:{results: HomeFeedTrailer[]} = await fetchTMDB(`/movie/${movie.id}/videos?language=ja-JP`);
 
-            return {...movie, videos: videoRes.results || []};
+            return {...movie, trailers: trailerRes.results || []};
           } catch(e) {
-            return {...movie, videos: []};
+            return {...movie, trailers: []};
           }
         })
       );
-      console.log(videoData)
-      return videoData;
+      
+      return trailerData;
 
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -54,5 +54,3 @@ const fetchHomeHeros = createAsyncThunk('home/fetchHomeHeros',
     }
   }
 );
-
-export default fetchHomeHeros;

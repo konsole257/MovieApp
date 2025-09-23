@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchMovieNowPlayings from './movieNowPlayingThunk';
+import { fetchMovieNowPlayings } from './movieNowPlayingThunk';
 
 export interface MovieNowPlaying {
   id: number;
@@ -24,7 +24,7 @@ const initialState: MovieNowPlayingsState = {
   error: null,
 };
 
-const MovieNowPlayingsSlice = createSlice({
+export const MovieNowPlayingsSlice = createSlice({
   name: 'moviePlayings',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const MovieNowPlayingsSlice = createSlice({
   },
 });
 
-export default MovieNowPlayingsSlice.reducer;
+export const MovieNowPlayingsReducer = MovieNowPlayingsSlice.reducer;

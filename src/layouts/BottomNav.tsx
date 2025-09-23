@@ -2,7 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import './BottomNav.css';
 
-const BottomNav = () => {
+export const BottomNav = () => {
   const location = useLocation();
 
   return (
@@ -20,7 +20,5 @@ const BottomNav = () => {
 
     <hr id="bottomnav-end" />
   </>
-  );
-}
-
-export default BottomNav;
+  )
+};

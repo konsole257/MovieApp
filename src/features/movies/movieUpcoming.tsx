@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
-import fetchMovieUpcomings from './movieUpcomingThunk';
-import MediaItem from '@/components/MediaItem';
+import { fetchMovieUpcomings } from './movieUpcomingThunk';
+import { MediaItem } from '@/components/MediaItem';
 
-const MovieUpcomings = () => {
+export const MovieUpcoming = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { items: movieUpcomings, loading, error } = useSelector(
     (state: RootState) => state.movieUpcomings
@@ -22,7 +22,5 @@ const MovieUpcomings = () => {
   <>
     <MediaItem type="movie" loading={loading} medias={movieUpcomings}/>
   </>
-  );
+  )
 };
-
-export default MovieUpcomings;

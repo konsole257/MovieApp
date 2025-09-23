@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchDetailContents from './detailContentThunk';
+import { fetchDetailContents } from './detailContentThunk';
 
 export interface DetailContent {
   id: number;
@@ -22,8 +22,8 @@ const initialState: DetailContentsState = {
   error: null,
 };
 
-const DetailContentsSlice = createSlice({
-  name: 'movieContents',
+export const DetailContentsSlice = createSlice({
+  name: 'detailContents',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -50,4 +50,4 @@ const DetailContentsSlice = createSlice({
   },
 });
 
-export default DetailContentsSlice.reducer;
+export const DetailContentsReducer = DetailContentsSlice.reducer;
