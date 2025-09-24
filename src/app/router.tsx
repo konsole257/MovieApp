@@ -7,7 +7,6 @@ import { Favorite } from '@/pages/Favorite';
 import { Search } from '@/pages/Search';
 import { Mypage } from '@/pages/Mypage';
 import { Detail } from '@/pages/Detail';
-import { Trailer } from '@/pages/Trailer';
 
 export const AppRouter = () => {
   return (
@@ -16,7 +15,6 @@ export const AppRouter = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />}>
           <Route path="Detail/:id" element={<Detail />} />
-          <Route path="Trailer/:id" element={<Trailer />} />
         </Route>
         <Route path="/Movie" element={<HomeMovie />}>
           <Route path="Detail/:id" element={<Detail />} />

@@ -19,7 +19,7 @@ export const HomeFeed = () => {
 
       return (
         <div key={idx} className={`feed-div ${isPlayable ? 'playable' : ''}`}> 
-          <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed.trailers}} to={`${isPlayable ? '/Trailer/':'/Detail/'}${homeFeed.id}`}>
+          <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed.trailers}} to={`${isPlayable ? '':`/Detail/${homeFeed.id}`}`}>
             <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
           </NavLink>
 

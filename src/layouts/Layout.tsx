@@ -3,14 +3,12 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { BottomNav } from './BottomNav';
 import { Detail } from '@/pages/Detail';
-import { Trailer } from '@/pages/Trailer';
 
 import './Layout.css';
 
 export const Layout = () => {
   const location = useLocation();
   const isDetail = location.pathname.includes("/Detail");
-  const isTrailer = location.pathname.includes("/Trailer");
 
   return (
   <>
@@ -33,21 +31,6 @@ export const Layout = () => {
           className="page-overlay"
         >
           <Detail />
-        </motion.div>
-      )}
-    </AnimatePresence>
-
-    <AnimatePresence>
-      {isTrailer && (
-        <motion.div
-          key={location.pathname}
-          initial={{ y: "-100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-100%" }}
-          transition={{ duration: 0.3 }}
-          className="page-overlay"
-        >
-          <Trailer />
         </motion.div>
       )}
     </AnimatePresence>
