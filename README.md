@@ -88,3 +88,6 @@ https://developer.themoviedb.org/docs/getting-started**
 - **2025-09-23**
   - Home UI Component, Hookの整理
   - Default ExportをNamed Exportに変更
+
+- **2025-09-28**
+  - Trailer追加、SSRエラー修正
