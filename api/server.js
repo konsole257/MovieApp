@@ -2,6 +2,21 @@ import express from 'express'
 import fs from 'node:fs/promises'
 import path from 'node:path';
 import { pathToFileURL } from 'node:url'
+import os from "os";
+import CryptoJS from 'crypto-js';
+import LZString from 'lz-string';
+
+const getLocalIP = () => {
+  const ifaces = os.networkInterfaces();
+  for (const dev in ifaces) {
+    for (const details of ifaces[dev] || []) {
+      if (details.family === "IPv4" && !details.internal) {
+        return details.address;
+      }
+    }
+  }
+  return "127.0.0.1";
+}
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -53,12 +68,17 @@ app.use('*all', async (req, res) => {
       template = templateHtml
       render = (await import(pathToFileURL(path.resolve('./dist/server/entry-server.js')).href)).render
     }
-    const rendered = await render(url)
-    
+    const rendered = await render(url);
+
     const html = template
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
-
+      .replace(
+        '<!--app-state-->',
+        `<script>
+          window.__PRELOADED_STATE__ = "${rendered.encrypted}";
+        </script>`
+      );
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
   } catch (e) {
@@ -73,7 +93,9 @@ app.listen(port, () => {
   console.log(
     `\n`+
 		`/**********************************************************\n`+
-		`     ${isProduction ? 'Prod' : 'Dev'} Server - http://localhost:${port}/ \n`+
+		`     ${isProduction ? 'Prod' : 'Dev'} Server running at    \n`+
+    `     Local:   http://localhost:${port}/                    \n`+
+    `     Network: http://${getLocalIP()}:${port}/              \n`+
 		`**********************************************************/`
 	)
 });

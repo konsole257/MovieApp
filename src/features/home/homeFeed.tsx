@@ -1,51 +1,77 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 import { Skeleton } from '@/components/Skeleton';
+// import { useTrailerContent } from "@/features/trailer/useTrailerContent";
 
 import { useHomeFeed } from './useHomeFeed';
 import './homeFeed.css';
 
 export const HomeFeed = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { homeFeeds, loading, error } = useHomeFeed();
+  // const { setTrailer } = useTrailerContent();
+
 
   // if(loading) return <p>Loading...</p>;
   if(error) return <p>Error: {error}</p>;
   
   return (
   <>
-    {homeFeeds.map((homeFeed, idx) => {
+    {homeFeeds.map((homeFeed) => {
       const isPlayable = homeFeed.trailers.length > 0;
-      // Trailer
-
+      
       return (
-        <div key={idx} className={`feed-div ${isPlayable ? 'playable' : ''}`}> 
-          <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed.trailers}} to={`${isPlayable ? '':`/Detail/${homeFeed.id}`}`}>
-            <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
-          </NavLink>
+        <div key={homeFeed.id} className={`feed-div ${isPlayable ? 'playable' : ''}`}> 
+          <motion.div key={homeFeed.id} layoutId={`feed-${homeFeed.id}`}>
+            <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed, backgroundLocation: location}} to={`${isPlayable ? '/Trailer/':`/Detail/`}${homeFeed.id}`}>
+              <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
+            </NavLink>
+          </motion.div>
 
           <div className="feed-info">
             <NavLink state={{type: 'movie'}} to={`/Detail/${homeFeed.id}`}>
-              <div className="feed-tit ellipsis-line2"><Skeleton loading={loading} text={isPlayable ? homeFeed.trailers[0]?.name : homeFeed.title} /></div>
-              <div className="feed-date ellipsis-line`"><Skeleton loading={loading} text={`公開日 ${homeFeed.release_date}`} /></div>
+              <div className="feed-tit ellipsis-line2"><Skeleton loading={loading} text={homeFeed.title} /></div>
+              <div className="feed-date ellipsis-line"><Skeleton loading={loading} text={`公開日 ${homeFeed.release_date}`} /></div>
             </NavLink>
           </div>
         </div>
       )
     })}
-
-    {/* {homeFeed.trailers.map((video) => (
-              <div key={video.id}>
-                <div>id: {video.id}</div>
-                <div>key: {video.key}</div>
-                <div>name: {video.name}</div>
-                <iframe
-                src={`https://www.youtube.com/embed/${video.key}`} 
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen></iframe>
-              </div>
-            ))} */}
   </>
   );
 };
+
+{/* <div key={idx} className={`feed-div ${isPlayable ? 'playable' : ''}`}> 
+            <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed.trailers}} to={`${isPlayable ? '':`/Detail/${homeFeed.id}`}`}>
+              <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
+            </NavLink>
+
+            <div className="feed-info">
+              <NavLink state={{type: 'movie'}} to={`/Detail/${homeFeed.id}`}>
+                <div className="feed-tit ellipsis-line2"><Skeleton loading={loading} text={isPlayable ? homeFeed.trailers[0]?.name : homeFeed.title} /></div>
+                <div className="feed-date ellipsis-line"><Skeleton loading={loading} text={`公開日 ${homeFeed.release_date}`} /></div>
+              </NavLink>
+            </div>
+          </div> */}
+{/* { isPlayable
+  ? (
+    <figure className="feed-fig">
+      <ReactPlayer
+        src={`https://www.youtube.com/watch?v=${homeFeed.trailers[0]?.key}`}
+        controls
+        playing
+        muted
+        light={true}
+        width="100%"
+        height="100%"
+      />
+    </figure>
+  )
+  : (
+    <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed.trailers}} to={`/Detail/${homeFeed.id}`}>
+      <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
+    </NavLink>
+  )
+} */}

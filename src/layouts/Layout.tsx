@@ -20,7 +20,7 @@ export const Layout = () => {
 
     <BottomNav />
 
-    <AnimatePresence>
+    {/* <AnimatePresence>
       {isDetail && (
         <motion.div
           key={location.pathname}
@@ -33,7 +33,7 @@ export const Layout = () => {
           <Detail />
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence> */}
   </>
   )
 };

@@ -9,10 +9,10 @@ export const useHomeFeed = () => {
   const { items, loading, error } = useSelector(
     (state: RootState) => state.homeFeeds
   );
-  
+
   useEffect(() => {
     dispatch(fetchHomeFeeds());
   }, [dispatch]);
   
-  return {homeFeeds: items, loading, error};
+  return { homeFeeds: items, loading, error };
 };

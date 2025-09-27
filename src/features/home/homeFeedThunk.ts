@@ -31,19 +31,19 @@ export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
 
       const data:{results: HomeFeed[]} = await fetchTMDB(`discover/movie?language=ja-JP&page=1&${sort}`);
 
-      const trailerData: HomeFeed[] = await Promise.all(
+      const feedData: HomeFeed[] = await Promise.all(
         data.results.map(async (movie) => {
           try{
             const trailerRes:{results: HomeFeedTrailer[]} = await fetchTMDB(`/movie/${movie.id}/videos?language=ja-JP`);
-
+            
             return {...movie, trailers: trailerRes.results || []};
           } catch(e) {
             return {...movie, trailers: []};
           }
         })
       );
-      
-      return trailerData;
+
+      return feedData;
 
     } catch (err: unknown) {
       if (err instanceof Error) {

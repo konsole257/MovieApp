@@ -6,6 +6,6 @@
 
 .media-item {flex: 1;}
 .media-item .media-link {display: block;width: 100px;}
-.media-item .media-fig {display: flex;height: 127px;border-radius: 9px;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
+.media-item .media-fig {position: relative;height: 127px;border-radius: 9px;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);}
 .media-item .media-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
-.media-item .media-tit {display: flex;height: 28px;font-size: 12px;text-align: center;margin-top: 10px;}
+.media-item .media-tit {height: 28px;font-size: 12px;text-align: center;margin-top: 10px;}

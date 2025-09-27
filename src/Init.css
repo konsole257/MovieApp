@@ -26,9 +26,9 @@ textarea {resize: none;}
 p {margin: 0;}
 a {text-decoration: none;color: var(--color-white);-webkit-tap-highlight-color: transparent;cursor: pointer;}
 hr {display: none;}
-button {padding: 0;border: none;background: none;}
+button {padding: 0;border: none;background: none;cursor: pointer;}
 .hidden {position: absolute;width: 1px;height: 1px;white-space: nowrap;margin: -1px;overflow: hidden;clip-path: polygon(0 0, 0 0, 0 0);}
-.img-error {width: 25%;height: 25%;}
+.img-error {position: absolute;top: 0;right: 0;bottom: 0;left: 0;width: 25%;height: 25%;margin: auto;}
 .skip {
   position: absolute;top: -40px;width: 80vw;right: 0;left: 0;text-align: center;text-decoration: none;color: var(--color-white);padding: 8px;margin: auto;z-index: 100;background: rgba(0, 0, 0, 0.75);
   

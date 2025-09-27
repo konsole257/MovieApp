@@ -11,6 +11,7 @@ import { TVAiringTodaysReducer } from '@/features/tvs/tvAiringTodaySlice';
 import { TVOnTheAirsReducer } from '@/features/tvs/tvOnTheAirSlice';
 import { TVTopRatedsReducer } from '@/features/tvs/tvTopRatedSlice';
 import { DetailContentsReducer } from '@/features/detail/detailContentSlice';
+import { TrailerContentsReducer } from '@/features/trailer/trailerContentSlice';
 
 export const rootReducer = combineReducers({
   homeFeeds: HomeFeedsReducer,
@@ -24,4 +25,5 @@ export const rootReducer = combineReducers({
   tvOnTheAirs: TVOnTheAirsReducer,
   tvTopRateds: TVTopRatedsReducer,
   detailContent: DetailContentsReducer,
+  trailerContent: TrailerContentsReducer,
 });

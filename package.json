@@ -13,11 +13,14 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "compression": "^1.8.1",
+    "crypto-js": "^4.2.0",
     "express": "^5.1.0",
     "framer-motion": "^12.23.12",
+    "lz-string": "^1.5.0",
     "normalize.css": "^8.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-player": "^3.3.3",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1",
     "sirv": "^3.0.1",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/crypto-js": "^4.2.2",
     "@types/express": "^5.0.3",
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.9",

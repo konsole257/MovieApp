@@ -5,9 +5,10 @@ export const store = configureStore({
   reducer: rootReducer,
 });
 
-export function createStore() {
+export function createStore(preloadedState?: any) {
   return configureStore({
     reducer: rootReducer,
+    preloadedState
   })
 }
 

@@ -10,5 +10,3 @@
 .cover-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
 .tit {display: flex;min-height: 18px;font-weight: 700;padding: 16px 16px 8px;}
 .overview {display: flex;min-height: 200px;line-height: 1.5;padding: 8px 16px 16px;}
-.iframe {display: flex;justify-content: center;align-items: center;height: 100dvh;}
-iframe {width: 100%;}
