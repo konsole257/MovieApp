@@ -5,4 +5,7 @@
 */
 
 .tarailer .page-contents .trailer-fig {width: 100vw;height: 210px;}
-.tarailer .page-contents .trailer-tit {height: 50px;padding: 8px 16px;box-sizing: border-box;}
+.tarailer .page-contents .trailer-info {padding: 8px 16px;}
+.tarailer .page-contents .trailer-name {max-height: 50px;}
+.tarailer .page-contents .trailer-tit {max-height: 50px;font-size: 12px;color: #aaa;margin-top: 6px;}
+.tarailer .page-contents .trailer-date {font-size: 12px;color: #aaa;margin-top: 6px;}

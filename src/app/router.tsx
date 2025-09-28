@@ -25,7 +25,7 @@ export const AppRouter = () => {
     <AnimatePresence>
       {/* {state?.backgroundLocation && ( */}
       {isTrailer && (
-        <motion.div className="page-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} onClick={() => navigate(-1)}>
+        <motion.div key={location.pathname} className="page-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} onClick={() => navigate(-1)}>
             <Routes location={location} key={location.pathname}>
               <Route path="/Trailer/:id" element={<Trailer />} />
             </Routes>
@@ -33,19 +33,12 @@ export const AppRouter = () => {
       )}
 
       {isDetail && (
-          <motion.div
-            key={location.pathname}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="page-overlay"
-          >
-            <Routes location={location} key={location.pathname}>
-              <Route path="/Detail/:id" element={<Detail />} />
-            </Routes>
-          </motion.div>
-        )}
+        <motion.div key={location.pathname} className="page-overlay" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: 0.3 }}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/Detail/:id" element={<Detail />} />
+          </Routes>
+        </motion.div>
+      )}
     </AnimatePresence>
 
     {/* <Routes location={state?.backgroundLocation || location}> */}

@@ -16,13 +16,17 @@ export const TrailerContent = () => {
 
   return (
   <>
-    <motion.div layoutId={`feed-${id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} onClick={(e) => e.stopPropagation()}>
+    <motion.div key={id} layoutId={`feed-${id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} onClick={(e) => e.stopPropagation()}>
       <figure className="trailer-fig">
-        <ReactPlayer src={`https://www.youtube.com/watch?v=${trailerContent[0].key}`} light={`https://image.tmdb.org/t/p/w1280${trailerContent[0].backdrop_path}`} controls playing muted width="100%" height="100%"/>
+        <ReactPlayer src={`https://www.youtube.com/watch?v=${trailerContent.trailers[0].key}`} light={`https://image.tmdb.org/t/p/w1280${trailerContent.backdrop_path}`} controls playing muted width="100%" height="100%"/>
       </figure>
     </motion.div>
 
-    <div className="trailer-tit">{trailerContent[0].name}</div>
+    <div className="trailer-info">
+      <div className="trailer-name">{trailerContent.trailers[0].name}</div>
+      <div className="trailer-tit">{trailerContent.title}</div>
+      <div className="trailer-date">公開日 {trailerContent.release_date}</div>
+    </div>
   </>
   )
 };

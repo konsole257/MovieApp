@@ -8,7 +8,7 @@ import { fetchTrailerContents } from './trailerContentThunk';
 export const useTrailerContent = () => {
   const { id='' } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const { items, loading, error } = useSelector(
+  const { item, loading, error } = useSelector(
     (state: RootState) => state.trailerContent
   );
 
@@ -16,5 +16,5 @@ export const useTrailerContent = () => {
     if(id) dispatch(fetchTrailerContents(id));
   }, [dispatch]);
   
-  return { trailerContent: items, loading, error };
+  return { trailerContent: item, loading, error };
 };

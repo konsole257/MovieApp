@@ -1,17 +1,14 @@
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 import { Skeleton } from '@/components/Skeleton';
-// import { useTrailerContent } from "@/features/trailer/useTrailerContent";
 
 import { useHomeFeed } from './useHomeFeed';
 import './homeFeed.css';
 
 export const HomeFeed = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const { homeFeeds, loading, error } = useHomeFeed();
-  // const { setTrailer } = useTrailerContent();
 
 
   // if(loading) return <p>Loading...</p>;
@@ -24,7 +21,7 @@ export const HomeFeed = () => {
       
       return (
         <div key={homeFeed.id} className={`feed-div ${isPlayable ? 'playable' : ''}`}> 
-          <motion.div key={homeFeed.id} layoutId={`feed-${homeFeed.id}`}>
+          <motion.div key={homeFeed.id} layoutId={`feed-${homeFeed.id}`} transition={{ duration: 0.3 }} className="motion-div">
             <NavLink className="feed-link" state={{type: 'movie', trailer: homeFeed, backgroundLocation: location}} to={`${isPlayable ? '/Trailer/':`/Detail/`}${homeFeed.id}`}>
               <figure className="feed-fig"><Skeleton loading={loading} className="feed-img" src={`https://image.tmdb.org/t/p/w1280${homeFeed.backdrop_path}`} alt={homeFeed.title} /></figure>
             </NavLink>
