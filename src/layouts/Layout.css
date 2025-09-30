@@ -7,4 +7,4 @@
 #main {min-height: calc(100dvh - 68px);}
 .page {position: relative;}
 .page-tit {position: absolute;width: 1px;height: 1px;white-space: nowrap;margin: -1px;overflow: hidden;clip-path: polygon(0 0, 0 0, 0 0);}
-.page-overlay {position: fixed;z-index: 1000;top: 0;left: 0;width: 100vw;height: 100dvh;background-color: rgba(0, 0, 0, 1);overflow: hidden auto;touch-action: none;}
+.page-overlay {position: fixed;z-index: 1000;top: 0;left: 0;width: 100vw;height: 100dvh;background-color: rgba(0, 0, 0, .6);overflow: hidden auto;touch-action: none;backdrop-filter: blur(6px);-webkit-backdrop-filter: blur(6px);}

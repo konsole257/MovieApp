@@ -38,7 +38,7 @@ const initialState: DetailContentState = {
   error: null,
 };
 
-export const TrailerContentsSlice = createSlice({
+export const trailerContentsSlice = createSlice({
   name: 'trailerContents',
   initialState,
   reducers: {},
@@ -70,4 +70,4 @@ export const TrailerContentsSlice = createSlice({
   },
 });
 
-export const TrailerContentsReducer = TrailerContentsSlice.reducer;
+export const trailerContentsReducer = trailerContentsSlice.reducer;

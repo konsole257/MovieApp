@@ -37,13 +37,13 @@ export const Home = () => {
   return (
   <>
     <div className="page home">
-      <h1 className="page-tit">Home</h1>
+      <h1 className="page-tit">ホーム</h1>
 
       <div className={`tabs ${tabShow ? 'sticky':''}`}>
         <Tabs>
-          <Tab label="Home" link="/" />
-          <Tab label="Movie" link="/Movie" />
-          <Tab label="TV Show" link="/TV" />
+          <Tab label="ホーム" link="/" />
+          <Tab label="ムービー" link="/Movie" />
+          <Tab label="TVショー" link="/TV" />
         </Tabs>
       </div>
 

@@ -1,6 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import { HomeFeedsReducer } from '@/features/home/homeFeedSlice';
+import { locationReducer } from '@/features/location/locationSlice';
+import { homeFeedsReducer } from '@/features/home/homeFeedSlice';
+import { detailContentsReducer } from '@/features/detail/detailContentSlice';
+import { trailerContentsReducer } from '@/features/trailer/trailerContentSlice';
+
 import { PopularMoviesReducer } from '@/features/populars/popularMovieSlice';
 import { PopularTVsReducer } from '@/features/populars/popularTVSlice';
 import { PopularPersonsReducer } from '@/features/populars/popularPersonSlice';
@@ -10,11 +14,13 @@ import { MovieUpcomingsReducer } from '@/features/movies/movieUpcomingSlice';
 import { TVAiringTodaysReducer } from '@/features/tvs/tvAiringTodaySlice';
 import { TVOnTheAirsReducer } from '@/features/tvs/tvOnTheAirSlice';
 import { TVTopRatedsReducer } from '@/features/tvs/tvTopRatedSlice';
-import { DetailContentsReducer } from '@/features/detail/detailContentSlice';
-import { TrailerContentsReducer } from '@/features/trailer/trailerContentSlice';
 
 export const rootReducer = combineReducers({
-  homeFeeds: HomeFeedsReducer,
+  location: locationReducer,
+  homeFeeds: homeFeedsReducer,
+  detailContent: detailContentsReducer,
+  trailerContent: trailerContentsReducer,
+  
   popularMovies: PopularMoviesReducer,
   popularTVs: PopularTVsReducer,
   popularPersons: PopularPersonsReducer,
@@ -24,6 +30,4 @@ export const rootReducer = combineReducers({
   tvAiringTodays: TVAiringTodaysReducer,
   tvOnTheAirs: TVOnTheAirsReducer,
   tvTopRateds: TVTopRatedsReducer,
-  detailContent: DetailContentsReducer,
-  trailerContent: TrailerContentsReducer,
 });

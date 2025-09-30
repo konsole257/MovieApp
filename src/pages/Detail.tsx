@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import { motion } from "framer-motion";
 
 import { DetailContents } from '@/features/detail/detailContent';
@@ -11,14 +10,7 @@ export const Detail = () => {
   
   return (
   <>
-    {/* <motion.div
-            key={location.pathname}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="page-overlay"
-          > */}
+    <motion.div className="page-overlay" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: .3 }}>
       <div className="page detail">
         <h1 className="page-tit">Detail</h1>
 
@@ -30,7 +22,7 @@ export const Detail = () => {
           <DetailContents />
         </div>
       </div>
-    {/* </motion.div> */}
+    </motion.div>
   </>
   )
 };

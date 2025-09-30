@@ -13,8 +13,8 @@ export const useTrailerContent = () => {
   );
 
   useEffect(() => {
-    if(id) dispatch(fetchTrailerContents(id));
-  }, [dispatch]);
+    if(String(item?.id) !== String(id)) {dispatch(fetchTrailerContents(id));}
+  }, [dispatch, id]);
   
   return { trailerContent: item, loading, error };
 };

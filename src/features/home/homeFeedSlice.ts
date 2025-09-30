@@ -34,7 +34,7 @@ const initialState: HomeFeedsState = {
   error: null,
 };
 
-export const HomeFeedsSlice = createSlice({
+export const homeFeedsSlice = createSlice({
   name: 'homeFeeds',
   initialState,
   reducers: {},
@@ -62,4 +62,4 @@ export const HomeFeedsSlice = createSlice({
   },
 });
 
-export const HomeFeedsReducer = HomeFeedsSlice.reducer;
+export const homeFeedsReducer = homeFeedsSlice.reducer;

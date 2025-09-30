@@ -22,7 +22,7 @@ const initialState: DetailContentsState = {
   error: null,
 };
 
-export const DetailContentsSlice = createSlice({
+export const detailContentsSlice = createSlice({
   name: 'detailContents',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ export const DetailContentsSlice = createSlice({
   },
 });
 
-export const DetailContentsReducer = DetailContentsSlice.reducer;
+export const detailContentsReducer = detailContentsSlice.reducer;

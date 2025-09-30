@@ -24,7 +24,8 @@ https://developer.themoviedb.org/docs/getting-started**
 - [x] ルーティングおよびページの構造
 - [x] TMDB APIの接続
 - [x] Vercel デプロイテスト
-- [ ] メインページ（リスト）
+- [ ] メインページ（リスト）(ホーム、ムービー、TVショー)
+- [x] トレーラーページ
 - [ ] 詳細ページ
 - [ ] お気に入りページ
 - [ ] 検索・検索結果ページ
@@ -91,3 +92,7 @@ https://developer.themoviedb.org/docs/getting-started**
 
 - **2025-09-28**
   - Trailer追加、SSRエラー修正
+
+  **2025-09-30**
+  - メイン, トレーラー, 詳細ページエラー修正
+  

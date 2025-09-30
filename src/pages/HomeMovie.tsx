@@ -13,9 +13,9 @@ import './Home.css';
 export const HomeMovie = () => {
   // Temp: ===
   const tabData = [
-    { label: 'Home', link: '/' },
-    { label: 'Movie', link: '/Movie' },
-    { label: 'TV Show', link: '/TV' },
+    { label: 'ホーム', link: '/' },
+    { label: 'ムービー', link: '/Movie' },
+    { label: 'TVショー', link: '/TV' },
   ];
 
   const [tabShow, setTabShow] = useState(true);
@@ -42,7 +42,7 @@ export const HomeMovie = () => {
   return (
   <>
     <div className="page home">
-      <h1 className="page-tit">Home</h1>
+      <h1 className="page-tit">ホーム</h1>
 
       <div className={`tabs ${tabShow ? 'sticky':''}`}>
         <Tabs tabs={tabData} />

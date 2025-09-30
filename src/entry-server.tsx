@@ -21,6 +21,7 @@ export async function render(_url: string) {
 
     case _url.startsWith('/Trailer/'): {
       const id = _url.split('/Trailer/')[1];
+      await store.dispatch(fetchHomeFeeds());
       await store.dispatch(fetchTrailerContents(id));
       break;
     }

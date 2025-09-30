@@ -1,14 +1,9 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from "framer-motion";
+import { Outlet } from 'react-router-dom';
 
 import { BottomNav } from './BottomNav';
-import { Detail } from '@/pages/Detail';
-
 import './Layout.css';
 
 export const Layout = () => {
-  const location = useLocation();
-  const isDetail = location.pathname.includes("/Detail");
 
   return (
   <>
@@ -19,21 +14,6 @@ export const Layout = () => {
     <hr id="main-end" />
 
     <BottomNav />
-
-    {/* <AnimatePresence>
-      {isDetail && (
-        <motion.div
-          key={location.pathname}
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ duration: 0.3 }}
-          className="page-overlay"
-        >
-          <Detail />
-        </motion.div>
-      )}
-    </AnimatePresence> */}
   </>
   )
 };
