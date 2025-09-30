@@ -93,6 +93,6 @@ https://developer.themoviedb.org/docs/getting-started**
 - **2025-09-28**
   - Trailer追加、SSRエラー修正
 
-  **2025-09-30**
+- **2025-09-30**
   - メイン, トレーラー, 詳細ページエラー修正
   
