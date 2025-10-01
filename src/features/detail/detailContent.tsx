@@ -6,9 +6,9 @@ import './detailContent.css';
 export const DetailContents = () => {
   const { detailContent, loading, error } = useDetailContent();
 
-  // if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error}</p>;
-  if(!detailContent) return <p>No data found.</p>;
+  // if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!detailContent) return <p>No data found.</p>;
 
   return (
   <>

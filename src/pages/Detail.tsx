@@ -1,12 +1,22 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { motion } from "framer-motion";
 
+import { RootState } from '@/app/store';
 import { DetailContents } from '@/features/detail/detailContent';
-
 import './Detail.css';
 
 export const Detail = () => {
   const navigate = useNavigate();
+  const backgroundLocation = useSelector(
+    (state: RootState) => state.location.backgroundLocation
+  );
+  const close = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    if (!backgroundLocation) return navigate('/');
+    navigate(backgroundLocation.pathname);
+  }
   
   return (
   <>
@@ -15,7 +25,7 @@ export const Detail = () => {
         <h1 className="page-tit">Detail</h1>
 
         <header className="page-header">
-          <button className="btn-back" onClick={() => navigate(-1)}><i className="icon-arrow"></i><span className="hidden">戻る</span></button>
+          <button className="btn-back" onClick={e => close(e)}><i className="icon-arrow"></i><span className="hidden">戻る</span></button>
         </header>
 
         <div className="page-cotents">

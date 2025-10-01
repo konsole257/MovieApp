@@ -11,7 +11,7 @@ export const useHomeFeed = () => {
   );
 
   useEffect(() => {
-    if(items[0].title === '') dispatch(fetchHomeFeeds());
+    if (items[0].title === '') dispatch(fetchHomeFeeds());
   }, [dispatch]);
   
   return { homeFeeds: items, loading, error };

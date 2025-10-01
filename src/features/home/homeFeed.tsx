@@ -1,11 +1,9 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setBackgroundLocation } from '@/features/location/locationSlice';
-
 import { motion } from "framer-motion";
 
+import { setBackgroundLocation } from '@/features/location/locationSlice';
 import { Skeleton } from '@/components/Skeleton';
-
 import { useHomeFeed } from './useHomeFeed';
 import './homeFeed.css';
 
@@ -15,8 +13,8 @@ export const HomeFeed = () => {
   const { homeFeeds, loading, error } = useHomeFeed();
 
 
-  // if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error}</p>;
+  // if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   
   return (
   <>

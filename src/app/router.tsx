@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AnimatePresence } from "framer-motion";
 
 import { RootState } from '@/app/store';
-
 import { Layout } from '@/layouts/Layout';
+import { clearBackgroundLocation } from '@/features/location/locationSlice';
 import { Home } from '@/pages/Home';
 import { HomeMovie } from '@/pages/HomeMovie';
 import { HomeTV } from '@/pages/HomeTV';
@@ -14,8 +14,6 @@ import { Trailer } from '@/pages/Trailer';
 import { Favorite } from '@/pages/Favorite';
 import { Search } from '@/pages/Search';
 import { Mypage } from '@/pages/Mypage';
-
-import { clearBackgroundLocation } from '@/features/location/locationSlice';
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -26,8 +24,6 @@ export const AppRouter = () => {
   );
   const isTrailer = pathname.includes("/Trailer");
   const isDetail = pathname.includes("/Detail");
-
-  console.log(backgroundLocation)
 
   useEffect(() => {
     if (!pathname.includes("/Trailer") && !pathname.includes("/Detail")) {

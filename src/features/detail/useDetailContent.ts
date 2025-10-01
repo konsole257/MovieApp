@@ -16,7 +16,7 @@ export const useDetailContent = () => {
   );
   
   useEffect(() => {
-    if(type&&id) dispatch(fetchDetailContents({type, id}));
+    if (type&&id) dispatch(fetchDetailContents({type, id}));
   }, [dispatch]);
 
   return { detailContent: item, loading, error }

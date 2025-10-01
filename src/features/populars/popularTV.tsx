@@ -16,8 +16,8 @@ export const PopularTV = () => {
     dispatch(fetchPopularTVs());
   }, [dispatch]);
 
-  // if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error}</p>;
+  // if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
   <>

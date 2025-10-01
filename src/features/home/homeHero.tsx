@@ -22,8 +22,8 @@ export const HomeHero = () => {
   //   dispatch(fetchHomeFeeds());
   // }, [dispatch]);
 
-  // if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error}</p>;
+  // if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
   <>

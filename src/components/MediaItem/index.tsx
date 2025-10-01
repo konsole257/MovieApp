@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { setBackgroundLocation } from '@/features/location/locationSlice';
 import { Skeleton } from '@/components/Skeleton';
-
 import './MediaItem.css';
 
 interface Media {
@@ -18,15 +19,14 @@ interface MediasProps {
 }
 
 export const MediaItem = ({type, loading, medias}: MediasProps) => {
+  const dispatch = useDispatch();
   const location = useLocation();
-  const pathname = location.pathname;
-  // const mediaType = pathname === '/' ? '/Popular' : pathname;
 
   return (
   <>
     {medias.map((media) => (
       <li className="media-item" key={media.id}>
-        <NavLink className="media-link" state={{type: type}} to={`${pathname}/Detail/${media.id}`}>
+        <NavLink className="media-link" state={{type: type}} to={`/Detail/${media.id}`} onClick={() => dispatch(setBackgroundLocation(location))}>
           <figure className="media-fig"><Skeleton loading={loading} className="media-img" src={`https://image.tmdb.org/t/p/w200${media.poster_path}`} alt={media.title ? media.title : media.name} /></figure>
           <div className="media-tit ellipsis-line2"><Skeleton loading={loading} text={media.title ? media.title : media.name} /></div>
         </NavLink>
