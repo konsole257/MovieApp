@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { fetchTMDB } from '@/api/tmdb';
-import { HomeFeed, HomeFeedTrailer } from './homeFeedSlice';
+import { HomeFeed, HomeFeedTrailer, HomeFeedReleaseResponse } from './homeFeedSlice';
 
 export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
   async (_, { rejectWithValue }) => {
@@ -21,7 +21,7 @@ export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
         `release_date.gte=${startDate}`,
         `release_date.lte=${endDate}`,
         'show_me=everything',
-        'sort_by=primary_release_date.asc',
+        // 'sort_by=primary_release_date.asc',
         'vote_average.gte=0',
         'vote_average.lte=10',
         'vote_count.gte=0',
@@ -37,8 +37,12 @@ export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
         moviesResponse.results.map(async (movie) => {
           try{
             const trailersResponse:{results: HomeFeedTrailer[]} = await fetchTMDB(`/movie/${movie.id}/videos?language=ja-JP`);
+            const releaseResponse: HomeFeedReleaseResponse = await fetchTMDB(`/movie/${movie.id}/release_dates?`);
+            const releaseJpResponse = releaseResponse.results.find(item => item.iso_3166_1 === 'JP');
+            const releaseTypeResponse = releaseJpResponse?.release_dates.filter(item => item.type === 3).pop();
+            const releaseCurrent = releaseTypeResponse?.release_date.split('T')[0];
             
-            return {...movie, trailers: trailersResponse.results || []};
+            return {...movie, trailers: trailersResponse.results || [], release_date_current: releaseCurrent || ''};
           } catch(e) {
             return {...movie, trailers: []};
           }

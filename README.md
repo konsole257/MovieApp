@@ -24,14 +24,17 @@ https://developer.themoviedb.org/docs/getting-started**
 - [x] ルーティングおよびページの構造
 - [x] TMDB APIの接続
 - [x] Vercel デプロイテスト
-- [ ] メインページ（リスト）(ホーム、ムービー、TVショー)
+- [ ] メインページ（リスト）
+  - [x] ホーム
+  - [ ] ムービー
+  - [ ] TVショー
 - [x] トレーラーページ
 - [ ] 詳細ページ
 - [ ] お気に入りページ
 - [ ] 検索・検索結果ページ
 - [ ] サインインページ
 - [ ] マイページ
-- [x] Slide-in Page
+- [x] Slide-in ページ
 - [ ] Infinite Scrolling
 - [x] Skeleton Screen
 - [ ] ダーク/ライトモードの切替
@@ -95,4 +98,7 @@ https://developer.themoviedb.org/docs/getting-started**
 
 - **2025-09-30**
   - メイン, トレーラー, 詳細ページエラー修正
-  
+
+- **2025-10-04**
+  - Skeleton onError処理の修正
+  - 詳細ページ追加

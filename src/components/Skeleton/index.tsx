@@ -3,7 +3,7 @@ import './Skeleton.css';
 interface SkeletonProps {
   loading: boolean;
   className?: string;
-  src?: string;
+  src?: string | null;
   alt?: string;
   text?: string;
 }
@@ -15,7 +15,7 @@ export const Skeleton = ({loading, className, src, alt, text}: SkeletonProps) =>
     ? <div className="skeleton"></div>
     : text
     ? <span className="skelton-txt">{text}</span>
-    : <img className={`skelton-img ${className ?? ''}`} loading="lazy" src={src} alt={alt ?? ''} onError={(e) => {e.currentTarget.src = '/images/img-error.svg';e.currentTarget.className = 'img-error';}} />
+    : <img className={src ? `skelton-img ${className ?? ''}` : 'img-error'} loading="lazy" src={src ? src : '/images/img-error.svg'} alt={alt ?? ''} />
     }
   </>
   )

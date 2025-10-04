@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { Tabs } from '@/components/Tabs';
 
@@ -19,7 +19,7 @@ export const HomeMovie = () => {
   ];
 
   const [tabShow, setTabShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,15 +28,15 @@ export const HomeMovie = () => {
       if (currentY === 0) {
         setTabShow(true);
       } else if (currentY > 50) {
-        setTabShow(currentY < lastScrollY);
+        setTabShow(currentY < lastScrollY.current);
       }
 
-      setLastScrollY(currentY);
+      lastScrollY.current = currentY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
   // === :Temp
 
   return (

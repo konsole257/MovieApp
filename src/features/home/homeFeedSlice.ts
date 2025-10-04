@@ -7,12 +7,27 @@ export interface HomeFeedTrailer {
   key?: string;
   name?: string;
 }
+export interface HomeFeedReleaseDate {
+  release_date: string;
+  type: number;
+}
+
+export interface HomeFeedRelease {
+  iso_3166_1: string;
+  release_dates: HomeFeedReleaseDate[];
+}
+
+export interface HomeFeedReleaseResponse {
+  id: number;
+  results: HomeFeedRelease[];
+}
 
 export interface HomeFeed {
   id: number;
   title: string;
   backdrop_path: string;
   release_date: string;
+  release_date_current: string;
   trailers: HomeFeedTrailer[];
 };
 
@@ -28,6 +43,7 @@ const initialState: HomeFeedsState = {
       title: '',
       backdrop_path: '',
       release_date: '',
+      release_date_current: '',
       trailers: []
     })),
   loading: true,
@@ -46,6 +62,7 @@ export const homeFeedsSlice = createSlice({
           title: '',
           backdrop_path: '',
           release_date: '',
+          release_date_current: '',
           trailers: []
         }));
         state.loading = true;

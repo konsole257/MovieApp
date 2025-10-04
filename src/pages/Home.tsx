@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import { Tabs, Tab } from '@/components/Tabs';
 
@@ -11,9 +11,8 @@ import { HomeFeed } from '@/features/home/homeFeed';
 import './Home.css';
 
 export const Home = () => {
-  // Temp: ===
   const [tabShow, setTabShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,17 +21,15 @@ export const Home = () => {
       if (currentY === 0) {
         setTabShow(true);
       } else if (currentY > 50) {
-        setTabShow(currentY < lastScrollY);
+        setTabShow(currentY < lastScrollY.current);
       }
 
-      setLastScrollY(currentY);
+      lastScrollY.current = currentY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-    
-  }, [lastScrollY]);
-  // === :Temp
+  }, []);
 
   return (
   <>
@@ -50,30 +47,6 @@ export const Home = () => {
       <div className="block feed">
         <HomeFeed />
       </div>
-
-      {/* <section className="block movie">
-        <h2 className="block-tit movie-tit">Movies</h2>
-
-        <ul className="media-list movie-list">
-          <PopularMovies />
-        </ul>
-      </section>
-
-      <section className="block tv">
-        <h2 className="block-tit tv-tit">TV Show</h2>
-
-        <ul className="media-list tv-list">
-          <PopularTVs />
-        </ul>
-      </section>
-
-      <section className="block person">
-        <h2 className="block-tit person-tit">Person</h2>
-
-        <ul className="person-list">
-          <PopularPersons />
-        </ul>
-      </section> */}
     </div>
   </>
   )
