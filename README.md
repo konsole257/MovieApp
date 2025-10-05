@@ -103,5 +103,5 @@ https://developer.themoviedb.org/docs/getting-started**
   - Skeleton onError処理の修正
   - 詳細ページ追加
 
-  - **2025-10-05**
+- **2025-10-05**
   - Icon Componentsの追加
