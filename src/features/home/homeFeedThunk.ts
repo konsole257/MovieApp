@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { fetchTMDB } from '@/api/tmdb';
-import { HomeFeed, HomeFeedTrailer, HomeFeedReleaseResponse } from './homeFeedSlice';
+import { HomeFeed, HomeFeedTrailer, ReleaseResponse } from './homeFeedSlice';
 
 export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
   async (_, { rejectWithValue }) => {
@@ -37,7 +37,7 @@ export const fetchHomeFeeds = createAsyncThunk('home/fetchHomeFeeds',
         moviesResponse.results.map(async (movie) => {
           try{
             const trailersResponse:{results: HomeFeedTrailer[]} = await fetchTMDB(`/movie/${movie.id}/videos?language=ja-JP`);
-            const releaseResponse: HomeFeedReleaseResponse = await fetchTMDB(`/movie/${movie.id}/release_dates?`);
+            const releaseResponse: ReleaseResponse = await fetchTMDB(`/movie/${movie.id}/release_dates?`);
             const releaseJpResponse = releaseResponse.results.find(item => item.iso_3166_1 === 'JP');
             const releaseTypeResponse = releaseJpResponse?.release_dates.filter(item => item.type === 3).pop();
             const releaseCurrent = releaseTypeResponse?.release_date.split('T')[0];

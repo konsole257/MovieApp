@@ -11,7 +11,7 @@ export const HomeFeed = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { homeFeeds, loading, error } = useHomeFeed();
-console.log(homeFeeds)
+
   // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   
@@ -32,7 +32,7 @@ console.log(homeFeeds)
             <NavLink state={{type: 'movie'}} to={`/Detail/${homeFeed.id}`} onClick={() => dispatch(setBackgroundLocation(location))}>
               <div className="feed-tit ellipsis-line2"><Skeleton loading={loading} text={homeFeed.title} /></div>
               <div className="feed-date ellipsis-line"><Skeleton loading={loading} text={`公開日 ${homeFeed.release_date_current}`} /></div>
-              <div className="feed-detail">詳細を見る &gt;</div>
+              <div className="feed-detail"><Skeleton loading={loading} text="詳細を見る &gt;" /></div>
             </NavLink>
           </div>
         </div>

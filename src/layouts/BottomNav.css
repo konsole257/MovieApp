@@ -8,11 +8,6 @@
 #bottomnav .nav-list {display: flex;height: 68px;}
 #bottomnav .nav-item {flex: 1;}
 #bottomnav .nav-link {display: flex;justify-content: center;align-items: center;height: 100%;}
-#bottomnav .nav-link.active [class*='icon-']:before {background-position: 0 -24px;}
-
-[class*='icon-'] {display: inline-block;width: 24px;height: 24px;}
-[class*='icon-']:before {content: '';position: absolute;width: 24px;height: 24px;background-position: 0 0;}
-.icon-home:before {background-image: url('@/assets/images/layouts/icon-home.png');}
-.icon-favorite:before {background-image: url('@/assets/images/layouts/icon-favorite.png');}
-.icon-search:before {background-image: url('@/assets/images/layouts/icon-search.png');}
-.icon-mypage:before {background-image: url('@/assets/images/layouts/icon-mypage.png');}
+#bottomnav .nav-link [class*='icon-'] {width: 24px;height: 24px;}
+#bottomnav .nav-link [class*='icon-']:before {background-color: var(--color-inActive);}
+#bottomnav .nav-link.active [class*='icon-']:before {background-color: var(--color-active);}

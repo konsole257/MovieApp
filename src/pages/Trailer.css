@@ -7,7 +7,6 @@
 .page-overlay:has(.tarailer) {display: flex;align-items: center;}
 .tarailer {overscroll-behavior: none;}
 .tarailer .page-header {display: flex;justify-content:end;}
-.tarailer .page-header .btn-close {width: 50px;height: 50px;}
-.tarailer .page-header .btn-close .icon-close {display: inline-block;position: relative;width: 30px;height: 30px;}
-.tarailer .page-header .btn-close .icon-close:before {content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;mask: url('@/assets/images/icon-close.svg') no-repeat center / contain;background-color: var(--color-white);}
+.tarailer .page-header .btn-close {width: 40px;height: 40px;}
+.tarailer .page-header .btn-close .icon-close {width: 16px;height: 16px;}
 

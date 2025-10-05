@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { RootState } from '@/app/store';
 import { DetailContents } from '@/features/detail/detailContent';
+import { Icon } from '@/components/Icon';
 import './Detail.css';
 
 export const Detail = () => {
@@ -25,7 +26,7 @@ export const Detail = () => {
         <h1 className="page-tit">Detail</h1>
 
         <header className="page-header">
-          <button className="btn-back" onClick={e => close(e)}><i className="icon-arrow"></i><span className="hidden">戻る</span></button>
+          <button className="btn-back" onClick={e => close(e)}><Icon name="arrow" /><span className="hidden">戻る</span></button>
         </header>
 
         <div className="page-cotents">

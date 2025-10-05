@@ -7,5 +7,4 @@
 .detail {height: 100%;background-color: var(--color-background);overflow: hidden auto;overscroll-behavior: none;}
 .detail .page-header {position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
 .detail .page-header .btn-back {display: flex;justify-content: center;align-items: center;width: 47px;height: 45px;}
-.detail .page-header .btn-back .icon-arrow {display: inline-block;position: relative;width: 18px;height: 16px;}
-.detail .page-header .btn-back .icon-arrow:before {content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-image: url('@/assets/images/layouts/icon-arrow.svg');}
+.detail .page-header .btn-back .icon-arrow {width: 18px;height: 16px;}

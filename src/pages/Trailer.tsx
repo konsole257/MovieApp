@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { RootState } from '@/app/store';
 import { TrailerContent } from '@/features/trailer/trailerContent';
+import { Icon } from '@/components/Icon';
 import './Trailer.css';
 
 export const Trailer = () => {
@@ -25,7 +26,7 @@ export const Trailer = () => {
         <h1 className="page-tit">Trailer</h1>
 
         <header className="page-header">
-          <button className="btn-close" onClick={e => close(e)}><i className="icon-close"></i><span className="hidden">戻る</span></button>
+          <button className="btn-close" onClick={e => close(e)}><Icon name="close" /><span className="hidden">戻る</span></button>
         </header>
 
         <div className="page-contents">

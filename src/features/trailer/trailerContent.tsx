@@ -25,7 +25,7 @@ export const TrailerContent = () => {
     <div className="trailer-info">
       <div className="trailer-name"><Skeleton loading={loading} text={trailerContent.trailers[0].name} /></div>
       <div className="trailer-tit"><Skeleton loading={loading} text={trailerContent.title} /></div>
-      <div className="trailer-date"><Skeleton loading={loading} text={`公開日 ${trailerContent.release_date}`} /></div>
+      <div className="trailer-date"><Skeleton loading={loading} text={`公開日 ${trailerContent.release_date_current}`} /></div>
     </div>
   </>
   )

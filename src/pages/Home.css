@@ -4,6 +4,7 @@
 * --------------------------------
 */
 
+
 .block {padding: 16px 16px;overflow: hidden;overflow-x: auto;}
 .block-tit {position: sticky;left: 0;font-size: 12px;margin-bottom: 16px;}
 
@@ -15,7 +16,7 @@
   100% {transform: translateY(-100%);}
 }
 
-.feed {position: relative;padding: 0;}
+.feed {position: relative;padding: 0;padding-bottom: 24px;}
 
 .hero {position: relative;padding: 0;}
 .hero-fig {position: relative;width: 100vw;height: 210px;background-color: var(--color-black);overflow: hidden;}

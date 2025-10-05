@@ -2,6 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchTrailerContents } from './trailerContentThunk';
 
+interface ReleaseDate {
+  release_date: string;
+  type: number;
+}
+
+interface ReleaseDates {
+  iso_3166_1: string;
+  release_dates: ReleaseDate[];
+}
+
+export interface ReleaseResponse {
+  id: number;
+  results: ReleaseDates[];
+}
+
 export interface Trailer {
   id: number;
   key: string;
@@ -12,6 +27,7 @@ export interface DetailContent {
   id: number,
   title: string;
   release_date: string;
+  release_date_current: string;
   backdrop_path: string;
   trailers: Trailer[];
 }
@@ -27,6 +43,7 @@ const initialState: DetailContentState = {
     id: 0,
     title: '',
     release_date: '',
+    release_date_current: '',
     backdrop_path: '',
     trailers: [{
       id: 0,
@@ -49,6 +66,7 @@ export const trailerContentsSlice = createSlice({
           id: 0,
           title: '',
           release_date: '',
+          release_date_current: '',
           backdrop_path: '',
           trailers: [{
             id: 0,

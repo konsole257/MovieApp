@@ -7,19 +7,20 @@ export interface HomeFeedTrailer {
   key?: string;
   name?: string;
 }
-export interface HomeFeedReleaseDate {
+
+interface ReleaseDate {
   release_date: string;
   type: number;
 }
 
-export interface HomeFeedRelease {
+interface ReleaseDates {
   iso_3166_1: string;
-  release_dates: HomeFeedReleaseDate[];
+  release_dates: ReleaseDate[];
 }
 
-export interface HomeFeedReleaseResponse {
+export interface ReleaseResponse {
   id: number;
-  results: HomeFeedRelease[];
+  results: ReleaseDates[];
 }
 
 export interface HomeFeed {
