@@ -16,6 +16,8 @@ export const TrailerContent = () => {
 
   return (
   <>
+    <h1 className="page-tit">{trailerContent.title}</h1>
+    
     <motion.div key={id} layoutId={`feed-${id}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} onClick={e => e.stopPropagation()}>
       <figure className="trailer-fig">
         <ReactPlayer src={`https://www.youtube.com/watch?v=${trailerContent.trailers[0].key}`} light={`https://image.tmdb.org/t/p/w1280${trailerContent.backdrop_path}`} controls playing muted width="100%" height="100%"/>

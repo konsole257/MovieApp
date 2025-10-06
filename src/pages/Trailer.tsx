@@ -23,8 +23,6 @@ export const Trailer = () => {
   <>
     <motion.div className="page-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} onClick={e => close(e)}>
       <div className="page tarailer">
-        <h1 className="page-tit">Trailer</h1>
-
         <header className="page-header">
           <button className="btn-close" onClick={e => close(e)}><Icon name="close" /><span className="hidden">戻る</span></button>
         </header>

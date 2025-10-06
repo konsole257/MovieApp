@@ -5,6 +5,6 @@
 */
 
 .tab-list {display: flex;gap: 16px;padding: 16px;box-sizing: border-box;}
-.tab-link {font-weight: 700;color: rgba(255, 255, 255, .5);}
-.tab-link.active {position: relative;color: rgba(255, 255, 255, 1);}
-.tab-link.active:after {content: '';position: absolute;right: 0;bottom: -5px;left: 0;width: 30px;height: 3px;margin: 0 auto;background: #b80303;}
+.tab-link {font-weight: 700;font-size: 16px;color: var(--color-inActive);}
+.tab-link.active {position: relative;color: var(--color-txt-primary);}
+.tab-link.active:after {content: '';position: absolute;right: 0;bottom: -5px;left: 0;width: 30px;height: 3px;margin: 0 auto;background: var(--color-active);}

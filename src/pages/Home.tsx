@@ -20,7 +20,7 @@ export const Home = () => {
 
       if (currentY === 0) {
         setTabShow(true);
-      } else if (currentY > 50) {
+      } else if (currentY > 0) {
         setTabShow(currentY < lastScrollY.current);
       }
 
@@ -45,6 +45,8 @@ export const Home = () => {
       </div>
 
       <div className="block feed">
+        <h2 className="block-tit">近日公開の映画の予告編</h2>
+
         <HomeFeed />
       </div>
     </div>

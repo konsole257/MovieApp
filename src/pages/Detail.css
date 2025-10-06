@@ -4,7 +4,7 @@
 * --------------------------------
 */
 
-.detail {height: 100%;background-color: var(--color-background);overflow: hidden auto;overscroll-behavior: none;}
+.detail {height: 100%;background-color: var(--color-bg-primary);overflow: hidden auto;overscroll-behavior: none;}
 .detail .page-header {position: fixed;z-index: 10;top: 0;left: 0;width: 100%;}
 .detail .page-header .btn-back {display: flex;justify-content: center;align-items: center;width: 47px;height: 45px;}
 .detail .page-header .btn-back .icon-arrow {width: 18px;height: 16px;}

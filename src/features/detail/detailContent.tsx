@@ -12,11 +12,15 @@ export const DetailContents = () => {
 
   return (
   <>
-    <figure className="cover-fig"><Skeleton loading={loading} className="cover-img" src={detailContent.backdrop_path ? `https://image.tmdb.org/t/p/w1280${detailContent.backdrop_path}` : null} alt="" /></figure>
-    <div className="tit"><Skeleton loading={loading} text={detailContent.title ? detailContent.title : detailContent.name} /></div>
-    <div className="overview">
-      <div><Skeleton loading={loading} text="概要" /></div>
-      <Skeleton loading={loading} text={detailContent.overview ? detailContent.overview : '概要がまだ翻訳されていません。'} />
+    <h1 className="page-tit">{detailContent.title ? detailContent.title : detailContent.name}</h1>
+    
+    <figure className="cover-fig"><Skeleton loading={loading} className="cover-img" src={`https://image.tmdb.org/t/p/w1280${detailContent.backdrop_path}`} alt="" /></figure>
+    <div className="detail-info">
+      <div className="tit"><Skeleton loading={loading} text={detailContent.title ? detailContent.title : detailContent.name} /></div>
+      <div className="overview">
+        <div><Skeleton loading={loading} text="概要" /></div>
+        <Skeleton loading={loading} text={detailContent.overview ? detailContent.overview : '概要がまだ翻訳されていません。'} />
+      </div>
     </div>
   </>
   )

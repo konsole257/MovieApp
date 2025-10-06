@@ -23,8 +23,6 @@ export const Detail = () => {
   <>
     <motion.div className="page-overlay" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: .3 }}>
       <div className="page detail">
-        <h1 className="page-tit">Detail</h1>
-
         <header className="page-header">
           <button className="btn-back" onClick={e => close(e)}><Icon name="arrow" /><span className="hidden">戻る</span></button>
         </header>
