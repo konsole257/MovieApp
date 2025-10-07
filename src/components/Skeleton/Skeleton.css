@@ -4,18 +4,65 @@
 * --------------------------------
 */
 
-*:has(> .skeleton) {display: flex !important;}
-.skeleton {flex: 1;position: relative;border-radius: 8px;background-color: var(--color-black);overflow: hidden;}
-.skeleton:after {content: '';animation: shimmer 1.5s infinite;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.15) 50%, rgba(255,255,255,0) 100%);}
-.skelton-img {animation: fade-in .6s;}
-.skelton-txt {animation: fade-in .6s;}
+*:has(> .skeleton) {
+	display: flex !important;
+}
+
+.skeleton {
+	position: relative;
+
+	overflow: hidden;
+	flex: 1;
+
+	border-radius: 8px;
+
+	background-color: var(--color-black);
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background-image: linear-gradient(
+			90deg,
+			rgb(255 255 255 / 0%) 0%,
+			rgb(255 255 255 / 15%) 50%,
+			rgb(255 255 255 / 0%) 100%
+		);
+
+		animation: shimmer 1.5s infinite;
+	}
+}
+
+.skelton-img {
+	animation: fade-in 0.6s;
+}
+
+.skelton-txt {
+	animation: fade-in 0.6s;
+}
 
 @keyframes shimmer {
-  0% {transform: translateX(-150px);}
-  100% {transform: translateX(100%);}
+	0% {
+		transform: translateX(-150px);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
 }
 
 @keyframes fade-in {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }

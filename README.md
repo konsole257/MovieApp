@@ -1,5 +1,4 @@
-MovieApp
-===
+# MovieApp
 
 > Vite + React + Redux + TypeScript をベースにした映画情報ウェブアプリケーション
 
@@ -8,17 +7,19 @@ MovieApp
 <br>
 
 ## 🛠️ Tech Stack
+
 Frontend: **React, TypeScript, Redux**  
 Build Tool: **Vite**  
 Styling: **CSS**  
 Deployment: **Vercel**  
 API:  
 **The Movie Database (TMDB) API  
-https://developer.themoviedb.org/docs/getting-started**  
+https://developer.themoviedb.org/docs/getting-started**
 
 <br>
 
 ## ✅ TODO (Pages & Features)
+
 - [x] プロジェクトの初期設定 (Vite + React + Redux + TS)
 - [x] SSR(Server-Side Rendering)の対応
 - [x] ルーティングおよびページの構造
@@ -45,17 +46,17 @@ https://developer.themoviedb.org/docs/getting-started**
 
 ## 👤 Author / Contributors
 
-- **私** - Frontend Developer  
-  - GitHub: [konsole257](https://github.com/konsole257)  
+- **私** - Frontend Developer
+  - GitHub: [konsole257](https://github.com/konsole257)
   - Email: konsole257@gmail.com
   - Notion: -
- 
+
 <br>
 
 ## 🙏 Acknowledgements
 
 - **ChatGPT** - エラー解決および疑問の解消
-- **私の検索結果に表示された方々** - エラー解決およびコード関連の手伝い  
+- **私の検索結果に表示された方々** - エラー解決およびコード関連の手伝い
 - **参考資料**
   - [TMDB API Documentation](https://www.themoviedb.org/documentation/api)
   - [Vite SSR Guide](https://vitejs.dev/guide/ssr.html)
@@ -105,3 +106,6 @@ https://developer.themoviedb.org/docs/getting-started**
 
 - **2025-10-05**
   - Icon Componentsの追加
+
+  - **2025-10-07**
+  - Prettier, StyleLintの追加

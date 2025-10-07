@@ -4,11 +4,45 @@
 * --------------------------------
 */
 
-[class*='icon-'] {display: inline-flex;}
-[class*='icon-']:before {content: '';display: block;width: 100%;height: 100%;mask-repeat: no-repeat;mask-position: center;mask-size:contain;background-color: var(--color-white);}
-.icon-home:before {mask-image: url('@/assets/images/icons/icon-home.png');}
-.icon-favorite:before {mask-image: url('@/assets/images/icons/icon-favorite.png');}
-.icon-search:before {mask-image: url('@/assets/images/icons/icon-search.png');}
-.icon-mypage:before {mask-image: url('@/assets/images/icons/icon-mypage.png');}
-.icon-arrow:before {mask-image: url('@/assets/images/icons/icon-arrow.png');}
-.icon-close:before {mask-image: url('@/assets/images/icons/icon-close.png');}
+[class*='icon-'] {
+	display: inline-flex;
+
+	&::before {
+		content: '';
+
+		display: block;
+
+		width: 100%;
+		height: 100%;
+
+		background-color: var(--color-white);
+
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
+}
+
+.icon-home::before {
+	mask-image: url('@/assets/images/icons/icon-home.png');
+}
+
+.icon-favorite::before {
+	mask-image: url('@/assets/images/icons/icon-favorite.png');
+}
+
+.icon-search::before {
+	mask-image: url('@/assets/images/icons/icon-search.png');
+}
+
+.icon-mypage::before {
+	mask-image: url('@/assets/images/icons/icon-mypage.png');
+}
+
+.icon-arrow::before {
+	mask-image: url('@/assets/images/icons/icon-arrow.png');
+}
+
+.icon-close::before {
+	mask-image: url('@/assets/images/icons/icon-close.png');
+}

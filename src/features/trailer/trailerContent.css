@@ -4,8 +4,31 @@
 * --------------------------------
 */
 
-.trailer-fig {width: 100vw;height: 210px;}
-.trailer-info {padding: 8px 16px;}
-.trailer-name {min-height: 18px;}
-.trailer-tit {min-height: 16px;font-size: 12px;color: var(--color-txt-secondary);margin-top: 6px;}
-.trailer-date {max-width: 120px;min-height: 16px;font-size: 12px;color: var(--color-txt-secondary);margin-top: 6px;}
+.trailer-fig {
+	width: 100vw;
+	height: 210px;
+}
+
+.trailer-info {
+	padding: 8px 16px;
+}
+
+.trailer-name {
+	min-height: 18px;
+}
+
+.trailer-tit {
+	min-height: 16px;
+	margin-top: 6px;
+	font-size: 12px;
+	color: var(--color-txt-secondary);
+}
+
+.trailer-date {
+	max-width: 120px;
+	min-height: 16px;
+	margin-top: 6px;
+
+	font-size: 12px;
+	color: var(--color-txt-secondary);
+}

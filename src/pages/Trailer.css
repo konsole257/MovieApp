@@ -4,9 +4,26 @@
 * --------------------------------
 */
 
-.page-overlay:has(.tarailer) {display: flex;align-items: center;}
-.tarailer {overscroll-behavior: none;}
-.tarailer .page-header {display: flex;justify-content:end;}
-.tarailer .page-header .btn-close {width: 40px;height: 40px;}
-.tarailer .page-header .btn-close .icon-close {width: 16px;height: 16px;}
+.page-overlay:has(.tarailer) {
+	display: flex;
+	align-items: center;
+}
 
+.tarailer {
+	overscroll-behavior: none;
+
+	.page-header {
+		display: flex;
+		justify-content: end;
+	}
+
+	.page-header .btn-close {
+		width: 40px;
+		height: 40px;
+	}
+
+	.page-header .btn-close .icon-close {
+		width: 16px;
+		height: 16px;
+	}
+}

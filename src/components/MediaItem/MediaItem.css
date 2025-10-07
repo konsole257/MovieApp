@@ -4,8 +4,36 @@
 * --------------------------------
 */
 
-.media-item {flex: 1;}
-.media-item .media-link {display: block;width: 100px;}
-.media-item .media-fig {position: relative;height: 127px;border-radius: 9px;overflow: hidden;box-shadow: 0 5px 5px rgba(0, 0, 0, .25);}
-.media-item .media-img {width: 100%;height: 100%;object-fit: cover;object-position: center;}
-.media-item .media-tit {height: 28px;font-size: 12px;text-align: center;margin-top: 10px;}
+.media-item {
+	flex: 1;
+
+	.media-link {
+		display: block;
+		width: 100px;
+	}
+
+	.media-fig {
+		position: relative;
+
+		overflow: hidden;
+
+		height: 127px;
+		border-radius: 9px;
+
+		box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
+	}
+
+	.media-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.media-tit {
+		height: 28px;
+		margin-top: 10px;
+		font-size: 12px;
+		text-align: center;
+	}
+}
