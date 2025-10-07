@@ -107,5 +107,5 @@ https://developer.themoviedb.org/docs/getting-started**
 - **2025-10-05**
   - Icon Componentsの追加
 
-  - **2025-10-07**
+- **2025-10-07**
   - Prettier, StyleLintの追加
