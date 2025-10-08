@@ -1,101 +1,105 @@
-import express from 'express'
-import fs from 'node:fs/promises'
+import express from 'express';
+import fs from 'node:fs/promises';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url'
-import os from "os";
-import CryptoJS from 'crypto-js';
-import LZString from 'lz-string';
+import { pathToFileURL } from 'node:url';
+import os from 'os';
 
 const getLocalIP = () => {
-  const ifaces = os.networkInterfaces();
-  for (const dev in ifaces) {
-    for (const details of ifaces[dev] || []) {
-      if (details.family === "IPv4" && !details.internal) {
-        return details.address;
-      }
-    }
-  }
-  return "127.0.0.1";
-}
+	const ifaces = os.networkInterfaces();
+	for (const dev in ifaces) {
+		for (const details of ifaces[dev] || []) {
+			if (details.family === 'IPv4' && !details.internal) {
+				return details.address;
+			}
+		}
+	}
+	return '127.0.0.1';
+};
 
 // Constants
-const isProduction = process.env.NODE_ENV === 'production'
-const port = process.env.PORT || 5173
-const base = process.env.BASE || '/'
+const isProduction = process.env.NODE_ENV === 'production';
+const port = process.env.PORT || 5173;
+const base = process.env.BASE || '/';
 
 // Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile(path.resolve('./dist/client/index.html'), 'utf-8')
-  : ''
+	? await fs.readFile(path.resolve('./dist/client/index.html'), 'utf-8')
+	: '';
 
 // Create http server
-const app = express()
+const app = express();
 
 // Add Vite or respective production middlewares
 /** @type {import('vite').ViteDevServer | undefined} */
-let vite
+let vite;
 if (!isProduction) {
-  const { createServer } = await import('vite')
-  vite = await createServer({
-    server: { middlewareMode: true },
-    appType: 'custom',
-    base,
-  })
-  app.use(vite.middlewares)
+	const { createServer } = await import('vite');
+	vite = await createServer({
+		server: { middlewareMode: true },
+		appType: 'custom',
+		base
+	});
+	app.use(vite.middlewares);
 } else {
-  const compression = (await import('compression')).default
-  const sirv = (await import('sirv')).default
-  app.use(compression())
-  app.use(base, sirv(path.resolve('./dist/client'), { extensions: [] }))
+	const compression = (await import('compression')).default;
+	const sirv = (await import('sirv')).default;
+	app.use(compression());
+	app.use(base, sirv(path.resolve('./dist/client'), { extensions: [] }));
 }
 
 // Serve HTML
 app.use('*all', async (req, res) => {
-  try {
-    const url = req.originalUrl.startsWith('/') ? req.originalUrl : '/' + req.originalUrl;
-    // const url = req.originalUrl.replace(base, '')
-    
-    /** @type {string} */
-    let template
-    /** @type {import('./src/entry-server.ts').render} */
-    let render
-    if (!isProduction) {
-      // Always read fresh template in development
-      template = await fs.readFile('./index.html', 'utf-8')
-      template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render
-    } else {
-      template = templateHtml
-      render = (await import(pathToFileURL(path.resolve('./dist/server/entry-server.js')).href)).render
-    }
-    const rendered = await render(url);
+	try {
+		const url = req.originalUrl.startsWith('/')
+			? req.originalUrl
+			: '/' + req.originalUrl;
+		// const url = req.originalUrl.replace(base, '')
 
-    const html = template
-      .replace(`<!--app-head-->`, rendered.head ?? '')
-      .replace(`<!--app-html-->`, rendered.html ?? '')
-      .replace(
-        '<!--app-state-->',
-        `<script>
+		/** @type {string} */
+		let template;
+		/** @type {import('./src/entry-server.ts').render} */
+		let render;
+		if (!isProduction) {
+			// Always read fresh template in development
+			template = await fs.readFile('./index.html', 'utf-8');
+			template = await vite.transformIndexHtml(url, template);
+			render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
+		} else {
+			template = templateHtml;
+			render = (
+				await import(
+					pathToFileURL(path.resolve('./dist/server/entry-server.js')).href
+				)
+			).render;
+		}
+		const rendered = await render(url);
+
+		const html = template
+			.replace(`<!--app-head-->`, rendered.head ?? '')
+			.replace(`<!--app-html-->`, rendered.html ?? '')
+			.replace(
+				'<!--app-state-->',
+				`<script>
           window.__PRELOADED_STATE__ = "${rendered.encrypted}";
         </script>`
-      );
+			);
 
-    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
-  } catch (e) {
-    vite?.ssrFixStacktrace(e)
-    console.log(e.stack)
-    res.status(500).end(e.stack)
-  }
-})
+		res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
+	} catch (e) {
+		vite?.ssrFixStacktrace(e);
+		console.log(e.stack);
+		res.status(500).end(e.stack);
+	}
+});
 
 // Start http server
 app.listen(port, () => {
-  console.log(
-    `\n`+
-		`/**********************************************************\n`+
-		`     ${isProduction ? 'Prod' : 'Dev'} Server running at    \n`+
-    `     Local:   http://localhost:${port}/                    \n`+
-    `     Network: http://${getLocalIP()}:${port}/              \n`+
-		`**********************************************************/`
-	)
+	console.log(
+		`\n` +
+			`/**********************************************************\n` +
+			`     ${isProduction ? 'Prod' : 'Dev'} Server running at    \n` +
+			`     Local:   http://localhost:${port}/                    \n` +
+			`     Network: http://${getLocalIP()}:${port}/              \n` +
+			`**********************************************************/`
+	);
 });

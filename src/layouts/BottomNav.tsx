@@ -4,22 +4,45 @@ import { Icon } from '@/components/Icon';
 import './BottomNav.css';
 
 export const BottomNav = () => {
-  const location = useLocation();
+	const location = useLocation();
 
-  return (
-  <>
-    <nav id="bottomnav">
-      <h2 className="hidden">下部メニュー</h2>
+	return (
+		<>
+			<nav id="bottomnav">
+				<h2 className="hidden">下部メニュー</h2>
 
-      <ul className="nav-list">
-        <li className="nav-item"><NavLink className={`nav-link  ${location.pathname.includes('/Movie')||location.pathname.includes('/TV') ? 'active' : ''}`} to="/"><Icon name="home" /><span className="hidden">Home</span></NavLink></li>
-        <li className="nav-item"><NavLink className={`nav-link`} to="/Favorite"><i className="icon-favorite"></i><span className="hidden">Favorite</span></NavLink></li>
-        <li className="nav-item"><NavLink className={`nav-link`} to="/Search"><i className="icon-search"></i><span className="hidden">Search</span></NavLink></li>
-        <li className="nav-item"><NavLink className={`nav-link`} to="/Mypage"><i className="icon-mypage"></i><span className="hidden">Mypage</span></NavLink></li>
-      </ul>
-    </nav>
+				<ul className="nav-list">
+					<li className="nav-item">
+						<NavLink
+							className={`nav-link  ${location.pathname.includes('/Movie') || location.pathname.includes('/TV') ? 'active' : ''}`}
+							to="/"
+						>
+							<Icon name="home" />
+							<span className="hidden">Home</span>
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink className={`nav-link`} to="/Favorite">
+							<Icon name="favorite" />
+							<span className="hidden">Favorite</span>
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink className={`nav-link`} to="/Search">
+							<Icon name="search" />
+							<span className="hidden">Search</span>
+						</NavLink>
+					</li>
+					<li className="nav-item">
+						<NavLink className={`nav-link`} to="/Mypage">
+							<Icon name="mypage" />
+							<span className="hidden">Mypage</span>
+						</NavLink>
+					</li>
+				</ul>
+			</nav>
 
-    <hr id="bottomnav-end" />
-  </>
-  )
+			<hr id="bottomnav-end" />
+		</>
+	);
 };

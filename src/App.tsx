@@ -4,10 +4,9 @@ import 'normalize.css';
 import './Init.css';
 
 export const App = () => {
-  
-  return (
-  <>
-    <AppRouter />
-  </>
-  )
+	return (
+		<>
+			<AppRouter />
+		</>
+	);
 };

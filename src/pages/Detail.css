@@ -17,19 +17,19 @@
 		left: 0;
 
 		width: 100%;
-	}
 
-	.page-header .btn-back {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		.btn-back {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-		width: 47px;
-		height: 45px;
-	}
+			width: 47px;
+			height: 45px;
 
-	.page-header .btn-back .icon-arrow {
-		width: 18px;
-		height: 16px;
+			.icon-arrow {
+				width: 18px;
+				height: 16px;
+			}
+		}
 	}
 }

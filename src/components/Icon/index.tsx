@@ -1,13 +1,13 @@
 import './Icon.css';
 
 interface iconProps {
-  name: string;
+	name: string;
 }
 
-export const Icon = ({name}: iconProps) => {
-  return (
-    <>
-      <i className={`icon-${name}`}></i>
-    </>
-  )
-}
+export const Icon = ({ name }: iconProps) => {
+	return (
+		<>
+			<i className={`icon-${name}`}></i>
+		</>
+	);
+};

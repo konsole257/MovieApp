@@ -6,11 +6,11 @@
 
 .media-item {
 	flex: 1;
+}
 
-	.media-link {
-		display: block;
-		width: 100px;
-	}
+.media-link {
+	display: block;
+	width: 100px;
 
 	.media-fig {
 		position: relative;

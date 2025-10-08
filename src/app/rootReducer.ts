@@ -16,18 +16,18 @@ import { TVOnTheAirsReducer } from '@/features/tvs/tvOnTheAirSlice';
 import { TVTopRatedsReducer } from '@/features/tvs/tvTopRatedSlice';
 
 export const rootReducer = combineReducers({
-  location: locationReducer,
-  homeFeeds: homeFeedsReducer,
-  detailContent: detailContentsReducer,
-  trailerContent: trailerContentsReducer,
-  
-  popularMovies: PopularMoviesReducer,
-  popularTVs: PopularTVsReducer,
-  popularPersons: PopularPersonsReducer,
-  movieNowPlayings: MovieNowPlayingsReducer,
-  movieTopRateds: MovieTopRatedsReducer,
-  movieUpcomings: MovieUpcomingsReducer,
-  tvAiringTodays: TVAiringTodaysReducer,
-  tvOnTheAirs: TVOnTheAirsReducer,
-  tvTopRateds: TVTopRatedsReducer,
+	location: locationReducer,
+	homeFeeds: homeFeedsReducer,
+	detailContent: detailContentsReducer,
+	trailerContent: trailerContentsReducer,
+
+	popularMovies: PopularMoviesReducer,
+	popularTVs: PopularTVsReducer,
+	popularPersons: PopularPersonsReducer,
+	movieNowPlayings: MovieNowPlayingsReducer,
+	movieTopRateds: MovieTopRatedsReducer,
+	movieUpcomings: MovieUpcomingsReducer,
+	tvAiringTodays: TVAiringTodaysReducer,
+	tvOnTheAirs: TVOnTheAirsReducer,
+	tvTopRateds: TVTopRatedsReducer
 });

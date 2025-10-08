@@ -4,16 +4,15 @@ import { BottomNav } from './BottomNav';
 import './Layout.css';
 
 export const Layout = () => {
+	return (
+		<>
+			<main id="main">
+				<Outlet />
+			</main>
 
-  return (
-  <>
-    <main id="main">
-      <Outlet />
-    </main>
-    
-    <hr id="main-end" />
+			<hr id="main-end" />
 
-    <BottomNav />
-  </>
-  )
+			<BottomNav />
+		</>
+	);
 };

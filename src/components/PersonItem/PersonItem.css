@@ -8,13 +8,13 @@
 	flex: 1;
 	min-width: 99px;
 	height: 127px;
+}
 
-	.person-link {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: 100%;
-	}
+.person-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
 
 	.person-fig {
 		overflow: hidden;
