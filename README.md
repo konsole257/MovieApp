@@ -111,4 +111,4 @@ https://developer.themoviedb.org/docs/getting-started**
   - Prettier, StyleLintの追加
 
 - **2025-10-13**
-  - 詳細ページの追加
+  - 詳細ページの修正
