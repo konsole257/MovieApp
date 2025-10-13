@@ -3,8 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchDetails } from '@/features/common/detailsThunk';
 import { fetchCredits } from '@/features/common/creditsThunk';
 import { fetchReleaseDate } from '@/features/common/releaseDateThunk';
+import { fetchReviews } from '@/features/common/reviewsThunk';
 import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
+import { Review } from '@/features/common/reviewsSlice';
 import { Details } from './detailContentSlice';
 
 export const fetchDetailContents = createAsyncThunk<
@@ -30,10 +32,15 @@ export const fetchDetailContents = createAsyncThunk<
 				fetchReleaseDate(id)
 			).unwrap();
 
+			const fetchReviewsAction: Review[] = await dispatch(
+				fetchReviews(id)
+			).unwrap();
+
 			return {
 				details: detailsAction,
 				credits: creditsAction,
-				release_date_latest: releaseDateAction
+				release_date_latest: releaseDateAction,
+				reviews: fetchReviewsAction
 			};
 		} catch (err: unknown) {
 			if (err instanceof Error) {

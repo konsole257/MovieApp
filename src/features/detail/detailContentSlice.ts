@@ -2,12 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
+import { Review } from '@/features/common/reviewsSlice';
 import { fetchDetailContents } from './detailContentThunk';
 
 export interface Details {
 	details: Detail;
 	credits: Credits;
 	release_date_latest: string;
+	reviews: Review[];
 }
 
 interface DetailsState {
@@ -24,6 +26,9 @@ const initialState: DetailsState = {
 			name: '',
 			backdrop_path: '',
 			overview: '',
+			runtime: 0,
+			popularity: 0,
+			vote_average: 0,
 			genres: [
 				{
 					id: 0,
@@ -38,7 +43,8 @@ const initialState: DetailsState = {
 				profile_path: ''
 			}))
 		},
-		release_date_latest: ''
+		release_date_latest: '',
+		reviews: []
 	},
 	loading: true,
 	error: null
@@ -58,6 +64,9 @@ export const detailContentsSlice = createSlice({
 						name: '',
 						backdrop_path: '',
 						overview: '',
+						runtime: 0,
+						popularity: 0,
+						vote_average: 0,
 						genres: [
 							{
 								id: 0,
@@ -72,7 +81,8 @@ export const detailContentsSlice = createSlice({
 							profile_path: ''
 						}))
 					},
-					release_date_latest: ''
+					release_date_latest: '',
+					reviews: []
 				};
 				state.loading = true;
 				state.error = null;

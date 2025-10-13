@@ -5,7 +5,7 @@ interface SkeletonProps {
 	className?: string;
 	src?: string;
 	alt?: string;
-	text?: string;
+	text?: string | number;
 }
 
 const isImage = (src: string) => {

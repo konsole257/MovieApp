@@ -13,6 +13,9 @@ export interface Detail {
 	name?: string;
 	backdrop_path: string;
 	overview?: string;
+	runtime: number;
+	popularity: number;
+	vote_average: number;
 	genres: Gennre[];
 }
 

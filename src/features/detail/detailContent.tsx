@@ -10,6 +10,11 @@ export const DetailContents = () => {
 	if (error) return <p>Error: {error}</p>;
 	if (!detailContent) return <p>No data found.</p>;
 
+	const runtime = {
+		HH: Math.floor(detailContent.details.runtime / 60),
+		MM: detailContent.details.runtime % 60
+	};
+
 	return (
 		<>
 			<h1 className="page-tit">
@@ -40,11 +45,20 @@ export const DetailContents = () => {
 						/>
 					</div>
 
-					<div className="date">
-						<Skeleton
-							loading={loading}
-							text={detailContent.release_date_latest}
-						/>
+					<div className="row">
+						<div className="date">
+							<Skeleton
+								loading={loading}
+								text={detailContent.release_date_latest}
+							/>
+						</div>
+
+						<div className="runtime">
+							<Skeleton
+								loading={loading}
+								text={`${runtime.HH}時間 ${runtime.MM}分`}
+							/>
+						</div>
 					</div>
 
 					<div className="genres">
@@ -56,7 +70,7 @@ export const DetailContents = () => {
 					</div>
 				</div>
 
-				<section className="info-block overview">
+				<section className="info-content overview">
 					<h2 className="tit">
 						<Skeleton loading={loading} text="概要" />
 					</h2>
@@ -72,7 +86,29 @@ export const DetailContents = () => {
 						/>
 					</div>
 				</section>
-				<section className="info-block cast">
+
+				<section className="info-content overview">
+					<h2 className="tit">
+						<Skeleton loading={loading} text="ユーザースコア" />
+					</h2>
+
+					<div className="overview-txt">
+						<Skeleton
+							loading={loading}
+							text={`${detailContent.details.vote_average}点 / 10点`}
+						/>
+					</div>
+				</section>
+
+				<section className="info-content review">
+					<h2 className="tit">
+						<Skeleton loading={loading} text="レビュー" />
+					</h2>
+
+					<div className="overview-txt">レビューがまだ翻訳されていません。</div>
+				</section>
+
+				<section className="info-content cast">
 					<h2 className="tit">
 						<Skeleton loading={loading} text="出演者" />
 					</h2>
