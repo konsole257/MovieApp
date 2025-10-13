@@ -30,7 +30,7 @@ https://developer.themoviedb.org/docs/getting-started**
   - [ ] ムービー
   - [ ] TVショー
 - [x] トレーラーページ
-- [ ] 詳細ページ
+- [x] 詳細ページ
 - [ ] お気に入りページ
 - [ ] 検索・検索結果ページ
 - [ ] サインインページ
@@ -109,3 +109,6 @@ https://developer.themoviedb.org/docs/getting-started**
 
 - **2025-10-07**
   - Prettier, StyleLintの追加
+
+- **2025-10-13**
+  - 詳細ページの追加

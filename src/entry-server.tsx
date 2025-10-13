@@ -7,6 +7,7 @@ import CryptoJS from 'crypto-js';
 import LZString from 'lz-string';
 import { fetchHomeFeeds } from '@/features/home/homeFeedThunk';
 import { fetchTrailerContents } from '@/features/trailer/trailerContentThunk';
+import { fetchDetailContents } from '@/features/detail/detailContentThunk';
 
 import { App } from './App';
 
@@ -23,6 +24,14 @@ export async function render(_url: string) {
 			const id = _url.split('/Trailer/')[1];
 			await store.dispatch(fetchHomeFeeds());
 			await store.dispatch(fetchTrailerContents(id));
+			break;
+		}
+
+		case _url.startsWith('/Detail/'): {
+			const params = _url.split('/Detail/')[1];
+			const [type, id] = params.split('/');
+			await store.dispatch(fetchHomeFeeds());
+			await store.dispatch(fetchDetailContents({ type, id }));
 			break;
 		}
 	}

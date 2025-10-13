@@ -17,14 +17,19 @@
 		left: 0;
 
 		width: 100%;
+		padding: 8px;
 
 		.btn-back {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 
-			width: 47px;
+			width: 45px;
 			height: 45px;
+			border-radius: 50%;
+
+			background-color: var(--color-black-30);
+			backdrop-filter: blur(6px);
 
 			.icon-arrow {
 				width: 18px;

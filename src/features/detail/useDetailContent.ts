@@ -1,23 +1,23 @@
 import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState, AppDispatch } from '@/app/store';
 
 import { fetchDetailContents } from './detailContentThunk';
 
 export const useDetailContent = () => {
-  const location = useLocation();
-  const type = location.state?.type;
-  const { id='' } = useParams<{ id: string }>();
+	const { type = '', id = '' } = useParams<{ type: string; id: string }>();
 
-  const dispatch = useDispatch<AppDispatch>();
-  const { item, loading, error } = useSelector(
-    (state: RootState) => state.detailContent
-  );
-  
-  useEffect(() => {
-    if (type&&id) dispatch(fetchDetailContents({type, id}));
-  }, [dispatch]);
+	const dispatch = useDispatch<AppDispatch>();
+	const { item, loading, error } = useSelector(
+		(state: RootState) => state.detailContent
+	);
 
-  return { detailContent: item, loading, error }
+	useEffect(() => {
+		if (String(item?.details.id) !== id) {
+			if (type && id) dispatch(fetchDetailContents({ type, id }));
+		}
+	}, [dispatch, item?.details.id, type, id]);
+
+	return { detailContent: item, loading, error };
 };

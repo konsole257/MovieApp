@@ -5,14 +5,14 @@ import type { RootState, AppDispatch } from '@/app/store';
 import { fetchHomeFeeds } from './homeFeedThunk';
 
 export const useHomeFeed = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { items, loading, error } = useSelector(
-    (state: RootState) => state.homeFeeds
-  );
+	const dispatch = useDispatch<AppDispatch>();
+	const { items, loading, error } = useSelector(
+		(state: RootState) => state.homeFeeds
+	);
 
-  useEffect(() => {
-    if (items[0].title === '') dispatch(fetchHomeFeeds());
-  }, [dispatch]);
-  
-  return { homeFeeds: items, loading, error };
+	useEffect(() => {
+		if (items[0].discover.title === '') dispatch(fetchHomeFeeds());
+	}, [dispatch, items]);
+
+	return { homeFeeds: items, loading, error };
 };

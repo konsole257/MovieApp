@@ -1,6 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import { locationReducer } from '@/features/location/locationSlice';
+import { locationReducer } from '@/features/common/locationSlice';
+import { trailerReducer } from '@/features/common/trailerSlice';
+import { releaseDataReducer } from '@/features/common/releaseDateSlice';
+import { discoverMovieReducer } from '@/features/common/discoverMovieSlice';
+import { creditsReducer } from '@/features/common/creditsSlice';
+import { detailsReducer } from '@/features/common/detailsSlice';
+
 import { homeFeedsReducer } from '@/features/home/homeFeedSlice';
 import { detailContentsReducer } from '@/features/detail/detailContentSlice';
 import { trailerContentsReducer } from '@/features/trailer/trailerContentSlice';
@@ -17,6 +23,12 @@ import { TVTopRatedsReducer } from '@/features/tvs/tvTopRatedSlice';
 
 export const rootReducer = combineReducers({
 	location: locationReducer,
+	discoverMovie: discoverMovieReducer,
+	trailer: trailerReducer,
+	releaseData: releaseDataReducer,
+	credits: creditsReducer,
+	details: detailsReducer,
+
 	homeFeeds: homeFeedsReducer,
 	detailContent: detailContentsReducer,
 	trailerContent: trailerContentsReducer,

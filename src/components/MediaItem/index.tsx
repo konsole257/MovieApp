@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { setBackgroundLocation } from '@/features/location/locationSlice';
+import { setBackgroundLocation } from '@/features/common/locationSlice';
 import { Skeleton } from '@/components/Skeleton';
 import './MediaItem.css';
 
@@ -28,8 +28,7 @@ export const MediaItem = ({ type, loading, medias }: MediasProps) => {
 				<li className="media-item" key={media.id}>
 					<NavLink
 						className="media-link"
-						state={{ type: type }}
-						to={`/Detail/${media.id}`}
+						to={`/Detail/${type}/${media.id}`}
 						onClick={() => dispatch(setBackgroundLocation(location))}
 					>
 						<figure className="media-fig">

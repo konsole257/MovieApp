@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import { RootState } from '@/app/store';
 import { Layout } from '@/layouts/Layout';
-import { clearBackgroundLocation } from '@/features/location/locationSlice';
+import { clearBackgroundLocation } from '@/features/common/locationSlice';
 import { Home } from '@/pages/Home';
 import { HomeMovie } from '@/pages/HomeMovie';
 import { HomeTV } from '@/pages/HomeTV';
@@ -42,7 +42,7 @@ export const AppRouter = () => {
 
 				{backgroundLocation && isDetail && (
 					<Routes location={location} key={location.pathname}>
-						<Route path="/Detail/:id" element={<Detail />} />
+						<Route path="/Detail/:type/:id" element={<Detail />} />
 					</Routes>
 				)}
 			</AnimatePresence>
@@ -51,7 +51,7 @@ export const AppRouter = () => {
 				<Route element={<Layout />}>
 					<Route path="/" element={<Home />} />
 					<Route path="/Trailer/:id" element={<Trailer />} />
-					<Route path="/Detail/:id" element={<Detail />} />
+					<Route path="/Detail/:type/:id" element={<Detail />} />
 
 					<Route path="/Movie" element={<HomeMovie />} />
 					<Route path="/TV" element={<HomeTV />} />

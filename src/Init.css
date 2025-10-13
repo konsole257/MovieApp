@@ -9,6 +9,8 @@
 	--safe-bottom: env(safe-area-inset-bottom);
 	--color-white: #fff;
 	--color-black: #000;
+	--color-black-30: rgb(0 0 0 / 30%);
+	--color-black-60: rgb(0 0 0 / 60%);
 	--color-inactive: #4c4c4c;
 	--color-active: #b80303;
 	--color-primary: #b80303;
@@ -121,6 +123,10 @@ button {
 	white-space: nowrap;
 
 	clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+figure:has(.img-error) {
+	position: relative;
 }
 
 .img-error {
