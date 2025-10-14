@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { RootState } from '@/app/store';
 import { setBackgroundLocation } from '@/features/common/locationSlice';
 import { Skeleton } from '@/components/Skeleton';
 import './MediaItem.css';
@@ -21,6 +23,12 @@ interface MediasProps {
 export const MediaItem = ({ type, loading, medias }: MediasProps) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
+	const backgroundLocation = useSelector(
+		(state: RootState) => state.location.backgroundLocation
+	);
+	const handleNavClick = useCallback(() => {
+		if (!backgroundLocation) return dispatch(setBackgroundLocation(location));
+	}, [dispatch, backgroundLocation, location]);
 
 	return (
 		<>
@@ -29,7 +37,7 @@ export const MediaItem = ({ type, loading, medias }: MediasProps) => {
 					<NavLink
 						className="media-link"
 						to={`/Detail/${type}/${media.id}`}
-						onClick={() => dispatch(setBackgroundLocation(location))}
+						onClick={handleNavClick}
 					>
 						<figure className="media-fig">
 							<Skeleton

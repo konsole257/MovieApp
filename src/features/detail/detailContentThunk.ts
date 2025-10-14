@@ -4,10 +4,12 @@ import { fetchDetails } from '@/features/common/detailsThunk';
 import { fetchCredits } from '@/features/common/creditsThunk';
 import { fetchReleaseDate } from '@/features/common/releaseDateThunk';
 import { fetchReviews } from '@/features/common/reviewsThunk';
+import { fetchRecommends } from '@/features/common/recommendsThunk';
 import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
 import { ReleaseDate } from '@/features/common/releaseDateSlice';
 import { Review } from '@/features/common/reviewsSlice';
+import { Recommend } from '@/features/common/recommendsSlice';
 import { Details } from './detailContentSlice';
 
 export const fetchDetailContents = createAsyncThunk<
@@ -37,11 +39,16 @@ export const fetchDetailContents = createAsyncThunk<
 				fetchReviews(id)
 			).unwrap();
 
+			const fetchRecommendsAction: Recommend[] = await dispatch(
+				fetchRecommends(id)
+			).unwrap();
+
 			return {
 				details: detailsAction,
 				credits: creditsAction,
 				release_date_current: releaseDateAction,
-				reviews: fetchReviewsAction
+				reviews: fetchReviewsAction,
+				recommends: fetchRecommendsAction
 			};
 		} catch (err: unknown) {
 			if (err instanceof Error) {

@@ -33,7 +33,9 @@
 	.media-tit {
 		height: 28px;
 		margin-top: 10px;
+
 		font-size: 12px;
+		line-height: 14px;
 		text-align: center;
 	}
 }

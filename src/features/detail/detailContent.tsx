@@ -1,3 +1,4 @@
+import { MediaItem } from '@/components/MediaItem';
 import { Skeleton } from '@/components/Skeleton';
 import { PersonItem } from '@/components/PersonItem';
 import { useDetailContent } from './useDetailContent';
@@ -105,7 +106,12 @@ export const DetailContents = () => {
 						<Skeleton loading={loading} text="レビュー" />
 					</h2>
 
-					<div className="overview-txt">レビューがまだ翻訳されていません。</div>
+					<div className="overview-txt">
+						<Skeleton
+							loading={loading}
+							text="レビューがまだ翻訳されていません。"
+						/>
+					</div>
 				</section>
 
 				<section className="info-content cast">
@@ -117,6 +123,20 @@ export const DetailContents = () => {
 						<PersonItem
 							loading={loading}
 							persons={detailContent.credits.cast}
+						/>
+					</ul>
+				</section>
+
+				<section className="info-content recommend">
+					<h2 className="tit">
+						<Skeleton loading={loading} text="おすすめ" />
+					</h2>
+
+					<ul className="recommend-list">
+						<MediaItem
+							type="movie"
+							loading={loading}
+							medias={detailContent.recommends}
 						/>
 					</ul>
 				</section>

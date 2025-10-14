@@ -6,6 +6,7 @@ import { releaseDataReducer } from '@/features/common/releaseDateSlice';
 import { discoverMovieReducer } from '@/features/common/discoverMovieSlice';
 import { creditsReducer } from '@/features/common/creditsSlice';
 import { detailsReducer } from '@/features/common/detailsSlice';
+import { recommendsReducer } from '@/features/common/recommendsSlice';
 
 import { homeFeedsReducer } from '@/features/home/homeFeedSlice';
 import { detailContentsReducer } from '@/features/detail/detailContentSlice';
@@ -28,6 +29,7 @@ export const rootReducer = combineReducers({
 	releaseData: releaseDataReducer,
 	credits: creditsReducer,
 	details: detailsReducer,
+	recommends: recommendsReducer,
 
 	homeFeeds: homeFeedsReducer,
 	detailContent: detailContentsReducer,

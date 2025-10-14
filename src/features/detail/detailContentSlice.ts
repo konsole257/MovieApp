@@ -4,6 +4,7 @@ import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
 import { Review } from '@/features/common/reviewsSlice';
 import { ReleaseDate } from '@/features/common/releaseDateSlice';
+import { Recommend } from '@/features/common/recommendsSlice';
 import { fetchDetailContents } from './detailContentThunk';
 
 export interface Details {
@@ -11,6 +12,7 @@ export interface Details {
 	credits: Credits;
 	release_date_current: ReleaseDate;
 	reviews: Review[];
+	recommends: Recommend[];
 }
 
 interface DetailsState {
@@ -48,7 +50,8 @@ const initialState: DetailsState = {
 			first: '',
 			latest: ''
 		},
-		reviews: []
+		reviews: [],
+		recommends: []
 	},
 	loading: true,
 	error: null
@@ -89,7 +92,8 @@ export const detailContentsSlice = createSlice({
 						first: '',
 						latest: ''
 					},
-					reviews: []
+					reviews: [],
+					recommends: []
 				};
 				state.loading = true;
 				state.error = null;
