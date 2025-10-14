@@ -36,7 +36,7 @@ export const Detail = () => {
 						</button>
 					</header>
 
-					<div className="page-cotents">
+					<div className="page-contents">
 						<DetailContents />
 					</div>
 				</div>
