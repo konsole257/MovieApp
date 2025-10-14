@@ -18,7 +18,7 @@ export const HomeFeed = () => {
 
 	// if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error: {error}</p>;
-	console.log(homeFeeds);
+
 	return (
 		<>
 			{homeFeeds.map(homeFeed => {
