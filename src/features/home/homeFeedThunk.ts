@@ -5,6 +5,7 @@ import { fetchDiscoverMovie } from '@/features/common/discoverMovieThunk';
 import { fetchReleaseDate } from '@/features/common/releaseDateThunk';
 import { Trailer } from '@/features/common/trailerSlice';
 import { DiscoverMovie } from '@/features/common/discoverMovieSlice';
+import { ReleaseDate } from '@/features/common/releaseDateSlice';
 import { HomeFeed } from './homeFeedSlice';
 
 export const fetchHomeFeeds = createAsyncThunk<
@@ -47,14 +48,14 @@ export const fetchHomeFeeds = createAsyncThunk<
 					fetchTrailer(discoverMovie.id)
 				).unwrap();
 
-				const releaseDateAction: string = await dispatch(
+				const releaseDateAction: ReleaseDate = await dispatch(
 					fetchReleaseDate(discoverMovie.id)
 				).unwrap();
 
 				return {
 					discover: discoverMovie,
 					trailers: trailerAction,
-					release_date_latest: releaseDateAction
+					release_date_current: releaseDateAction
 				};
 			})
 		);

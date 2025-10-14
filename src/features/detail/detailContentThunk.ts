@@ -6,6 +6,7 @@ import { fetchReleaseDate } from '@/features/common/releaseDateThunk';
 import { fetchReviews } from '@/features/common/reviewsThunk';
 import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
+import { ReleaseDate } from '@/features/common/releaseDateSlice';
 import { Review } from '@/features/common/reviewsSlice';
 import { Details } from './detailContentSlice';
 
@@ -28,7 +29,7 @@ export const fetchDetailContents = createAsyncThunk<
 				fetchCredits({ type, id })
 			).unwrap();
 
-			const releaseDateAction: string = await dispatch(
+			const releaseDateAction: ReleaseDate = await dispatch(
 				fetchReleaseDate(id)
 			).unwrap();
 
@@ -39,7 +40,7 @@ export const fetchDetailContents = createAsyncThunk<
 			return {
 				details: detailsAction,
 				credits: creditsAction,
-				release_date_latest: releaseDateAction,
+				release_date_current: releaseDateAction,
 				reviews: fetchReviewsAction
 			};
 		} catch (err: unknown) {

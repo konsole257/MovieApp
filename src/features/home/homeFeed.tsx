@@ -18,7 +18,7 @@ export const HomeFeed = () => {
 
 	// if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error: {error}</p>;
-
+	console.log(homeFeeds);
 	return (
 		<>
 			{homeFeeds.map(homeFeed => {
@@ -62,7 +62,7 @@ export const HomeFeed = () => {
 								<div className="feed-date ellipsis-line">
 									<Skeleton
 										loading={loading}
-										text={`公開日 ${homeFeed.release_date_latest}`}
+										text={`公開日 ${homeFeed.release_date_current.latest}`}
 									/>
 								</div>
 								<div className="feed-detail">

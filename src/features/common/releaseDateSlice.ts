@@ -2,24 +2,32 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchReleaseDate } from './releaseDateThunk';
 
-interface ReleaseDate {
-	release_date: string;
-	type: number;
+export interface ReleaseDateResponse {
+	iso_3166_1: string;
+	release_dates: [
+		{
+			release_date: string;
+			type: number;
+		}
+	];
 }
 
-export interface ReleaseDates {
-	iso_3166_1: string;
-	release_dates: ReleaseDate[];
+export interface ReleaseDate {
+	first: string;
+	latest: string;
 }
 
 interface ReleaseDatesState {
-	item: string;
+	item: ReleaseDate;
 	loading: boolean;
 	error: string | null;
 }
 
 const initialState: ReleaseDatesState = {
-	item: '',
+	item: {
+		first: '',
+		latest: ''
+	},
 	loading: true,
 	error: null
 };

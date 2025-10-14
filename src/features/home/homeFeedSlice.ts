@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { Trailer } from '@/features/common/trailerSlice';
+import { ReleaseDate } from '@/features/common/releaseDateSlice';
 import { DiscoverMovie } from '@/features/common/discoverMovieSlice';
 import { fetchHomeFeeds } from './homeFeedThunk';
 
 export interface HomeFeed {
 	discover: DiscoverMovie;
-	release_date_latest: string;
+	release_date_current: ReleaseDate;
 	trailers: Trailer[];
 }
 
@@ -23,7 +24,10 @@ const initialState: HomeFeedsState = {
 			title: '',
 			backdrop_path: ''
 		},
-		release_date_latest: '',
+		release_date_current: {
+			first: '',
+			latest: ''
+		},
 		trailers: []
 	})),
 	loading: true,
@@ -43,7 +47,10 @@ export const homeFeedsSlice = createSlice({
 						title: '',
 						backdrop_path: ''
 					},
-					release_date_latest: '',
+					release_date_current: {
+						first: '',
+						latest: ''
+					},
 					trailers: []
 				}));
 				state.loading = true;

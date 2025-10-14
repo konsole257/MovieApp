@@ -9,7 +9,7 @@ export const DetailContents = () => {
 	// if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error: {error}</p>;
 	if (!detailContent) return <p>No data found.</p>;
-
+	console.log(detailContent);
 	const runtime = {
 		HH: Math.floor(detailContent.details.runtime / 60),
 		MM: detailContent.details.runtime % 60
@@ -49,7 +49,7 @@ export const DetailContents = () => {
 						<div className="date">
 							<Skeleton
 								loading={loading}
-								text={detailContent.release_date_latest}
+								text={`${detailContent.release_date_current.latest} ${detailContent.release_date_current.first && `(最初公開日：${detailContent.release_date_current.first})`}`}
 							/>
 						</div>
 

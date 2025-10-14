@@ -3,12 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Detail } from '@/features/common/detailsSlice';
 import { Credits } from '@/features/common/creditsSlice';
 import { Review } from '@/features/common/reviewsSlice';
+import { ReleaseDate } from '@/features/common/releaseDateSlice';
 import { fetchDetailContents } from './detailContentThunk';
 
 export interface Details {
 	details: Detail;
 	credits: Credits;
-	release_date_latest: string;
+	release_date_current: ReleaseDate;
 	reviews: Review[];
 }
 
@@ -43,7 +44,10 @@ const initialState: DetailsState = {
 				profile_path: ''
 			}))
 		},
-		release_date_latest: '',
+		release_date_current: {
+			first: '',
+			latest: ''
+		},
 		reviews: []
 	},
 	loading: true,
@@ -81,7 +85,10 @@ export const detailContentsSlice = createSlice({
 							profile_path: ''
 						}))
 					},
-					release_date_latest: '',
+					release_date_current: {
+						first: '',
+						latest: ''
+					},
 					reviews: []
 				};
 				state.loading = true;

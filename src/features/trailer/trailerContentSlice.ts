@@ -64,7 +64,7 @@ export const trailerContentsSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(fetchTrailerContents.pending, state => {
-				((state.item = {
+				state.item = {
 					id: 0,
 					title: '',
 					release_date: '',
@@ -77,8 +77,8 @@ export const trailerContentsSlice = createSlice({
 							name: ''
 						}
 					]
-				}),
-					(state.loading = true));
+				};
+				state.loading = true;
 				state.error = null;
 			})
 			.addCase(fetchTrailerContents.fulfilled, (state, action) => {
