@@ -50,7 +50,7 @@ export const DetailContents = () => {
 						<div className="date">
 							<Skeleton
 								loading={loading}
-								text={`${detailContent.release_date_current.latest} ${detailContent.release_date_current.first && `(初公開日：${detailContent.release_date_current.first})`}`}
+								text={`${detailContent.release_date_current.latest ? detailContent.release_date_current.latest : '-'} ${detailContent.release_date_current.first && `(初公開日：${detailContent.release_date_current.first})`}`}
 							/>
 						</div>
 

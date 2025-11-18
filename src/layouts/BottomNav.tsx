@@ -22,19 +22,19 @@ export const BottomNav = () => {
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to="/Favorite">
+						<NavLink className={`nav-link`} to=" ">
 							<Icon name="favorite" />
 							<span className="hidden">Favorite</span>
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to="/Search">
+						<NavLink className={`nav-link`} to=" ">
 							<Icon name="search" />
 							<span className="hidden">Search</span>
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to="/Mypage">
+						<NavLink className={`nav-link`} to=" ">
 							<Icon name="mypage" />
 							<span className="hidden">Mypage</span>
 						</NavLink>

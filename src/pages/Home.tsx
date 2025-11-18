@@ -38,8 +38,8 @@ export const Home = () => {
 				<div className={`tabs ${tabShow ? 'sticky' : ''}`}>
 					<Tabs>
 						<Tab label="ホーム" link="/" />
-						<Tab label="ムービー" link="/Movie" />
-						<Tab label="TVショー" link="/TV" />
+						<Tab label="ムービー" link=" " />
+						<Tab label="TVショー" link=" " />
 					</Tabs>
 				</div>
 
