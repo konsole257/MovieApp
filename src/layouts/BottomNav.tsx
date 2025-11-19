@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
+import { handlePreparing } from '@/utils/common';
 import { Icon } from '@/components/Icon';
 import './BottomNav.css';
 
@@ -22,19 +23,19 @@ export const BottomNav = () => {
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to=" ">
+						<NavLink className={`nav-link`} to=" " onClick={handlePreparing}>
 							<Icon name="favorite" />
 							<span className="hidden">Favorite</span>
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to=" ">
+						<NavLink className={`nav-link`} to=" " onClick={handlePreparing}>
 							<Icon name="search" />
 							<span className="hidden">Search</span>
 						</NavLink>
 					</li>
 					<li className="nav-item">
-						<NavLink className={`nav-link`} to=" ">
+						<NavLink className={`nav-link`} to=" " onClick={handlePreparing}>
 							<Icon name="mypage" />
 							<span className="hidden">Mypage</span>
 						</NavLink>

@@ -6,6 +6,7 @@ import './Tabs.css';
 interface TabProps {
 	label: string;
 	link: string;
+	onClick?: () => void;
 }
 
 interface TabContentProps {
@@ -18,11 +19,11 @@ interface TabsProps {
 	children?: React.ReactNode;
 }
 
-export const Tab = ({ label, link }: TabProps) => {
+export const Tab = ({ label, link, onClick }: TabProps) => {
 	return (
 		<>
 			<li className="tab-item">
-				<NavLink className="tab-link" to={link}>
+				<NavLink className="tab-link" to={link} onClick={onClick}>
 					{label}
 				</NavLink>
 			</li>
@@ -58,7 +59,12 @@ export const Tabs = ({ tabs, children }: TabsProps) => {
 		<>
 			<ul className="tab-list">
 				{tabs?.map((tab, idx) => (
-					<Tab key={idx} label={tab.label} link={tab.link} />
+					<Tab
+						key={idx}
+						label={tab.label}
+						link={tab.link}
+						onClick={tab.onClick}
+					/>
 				))}
 
 				{childTabs}

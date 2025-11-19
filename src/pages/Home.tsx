@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
+import { handlePreparing } from '@/utils/common';
 import { Tabs, Tab } from '@/components/Tabs';
 
 import { HomeFeed } from '@/features/home/homeFeed';
@@ -38,8 +39,8 @@ export const Home = () => {
 				<div className={`tabs ${tabShow ? 'sticky' : ''}`}>
 					<Tabs>
 						<Tab label="ホーム" link="/" />
-						<Tab label="ムービー" link=" " />
-						<Tab label="TVショー" link=" " />
+						<Tab label="ムービー" link=" " onClick={handlePreparing} />
+						<Tab label="TVショー" link=" " onClick={handlePreparing} />
 					</Tabs>
 				</div>
 
